@@ -1,5 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+const client = require('./client');
 
 class Student extends React.Component{
 	render() {
@@ -8,9 +9,17 @@ class Student extends React.Component{
 				<td>{this.props.student.cnp}</td>
 				<td>{this.props.student.name}</td>
 				<td>{this.props.student.registrationNo}</td>
-				<td>{this.props.student.faculty.props.name}</td>
+				<td>{this.props.student.faculty.name}</td>
 				<td>{this.props.student.year}</td>
 			</tr>
+		)
+	}
+}
+
+class Faculty extends React.Component{
+	render() {
+		return (
+			<option value={this.props.faculty.name}>{this.props.faculty.name}</option>
 		)
 	}
 }
@@ -38,22 +47,45 @@ class StudentList extends React.Component{
 	}
 }
 
+class FacultyList extends React.Component{
+	render() {
+		const faculties = this.props.faculties.map(faculty =>
+			<Faculty key={faculty._links.self.href} faculty={faculty} />
+		);
+		return (
+				<select	id="faculties">{faculties}</select>
+				
+		)
+	}
+}
+
+
 class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {students: []};
+		this.state = {students: [], faculties: []};
 	}
 
 	componentDidMount() { 
-		client({method: 'GET', path: '/api/students'}).done(response => {
+		client({method: 'GET', path: '/students'}).done(response => {
 			this.setState({students: response.entity._embedded.students});
+		});
+		
+		client({method: 'GET', path: '/faculties'}).done(response => {
+			this.setState({faculties: response.entity._embedded.faculties});
 		});
 	}
 
 	render() {
 		return (
-			<StudentList students={this.state.students} />
+			<div>
+			Choose faculty: 
+				<FacultyList faculties={this.state.faculties} />
+				<br />
+				<br />
+				<StudentList students={this.state.students} />
+			</div>
 		)
 	}
 }

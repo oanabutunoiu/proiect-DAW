@@ -1,13 +1,17 @@
 #welcomediv{
-	background-color: salmon;
+	background-color: lightsalmon;
 	color: black;
-	
+	font-size: large;
+    padding: 5% 5% 5% 5%;
+}
+
+h1{
+	text-align: center;
 }
 
 body{
-	font-family: Arial, Helvetica, sans-serif;
-	background-color: darkmagenta;
-	color: lightskyblue;
+	font-family: Helvetica, sans-serif;
+    background-color: darkmagenta;
 }
 
 table, th, td {
@@ -37,10 +41,21 @@ th {
 .ok {
 	background-color: lightsalmon;
   	border: none;
-  	color: white;
+  	color: black;
   	padding: 15px 32px;
   	text-align: center;
   	text-decoration: none;
   	display: inline-block;
   	font-size: 16px;
 }
+#wrapperdiv{
+ position: absolute;
+ top: 0;
+ left: 0;
+ background-color: darkmagenta;
+ color: lightskyblue;
+}
+
+#students{
+ padding: 0% 5% 0% 5%;
+ }
