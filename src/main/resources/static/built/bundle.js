@@ -31168,38 +31168,15 @@ var Student = /*#__PURE__*/function (_React$Component) {
   return Student;
 }(React.Component);
 
-var Faculty = /*#__PURE__*/function (_React$Component2) {
-  _inherits(Faculty, _React$Component2);
+var StudentList = /*#__PURE__*/function (_React$Component2) {
+  _inherits(StudentList, _React$Component2);
 
-  var _super2 = _createSuper(Faculty);
-
-  function Faculty() {
-    _classCallCheck(this, Faculty);
-
-    return _super2.apply(this, arguments);
-  }
-
-  _createClass(Faculty, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/React.createElement("option", {
-        value: this.props.faculty.name
-      }, this.props.faculty.name);
-    }
-  }]);
-
-  return Faculty;
-}(React.Component);
-
-var StudentList = /*#__PURE__*/function (_React$Component3) {
-  _inherits(StudentList, _React$Component3);
-
-  var _super3 = _createSuper(StudentList);
+  var _super2 = _createSuper(StudentList);
 
   function StudentList() {
     _classCallCheck(this, StudentList);
 
-    return _super3.apply(this, arguments);
+    return _super2.apply(this, arguments);
   }
 
   _createClass(StudentList, [{
@@ -31217,45 +31194,17 @@ var StudentList = /*#__PURE__*/function (_React$Component3) {
   return StudentList;
 }(React.Component);
 
-var FacultyList = /*#__PURE__*/function (_React$Component4) {
-  _inherits(FacultyList, _React$Component4);
+var App = /*#__PURE__*/function (_React$Component3) {
+  _inherits(App, _React$Component3);
 
-  var _super4 = _createSuper(FacultyList);
-
-  function FacultyList() {
-    _classCallCheck(this, FacultyList);
-
-    return _super4.apply(this, arguments);
-  }
-
-  _createClass(FacultyList, [{
-    key: "render",
-    value: function render() {
-      var faculties = this.props.faculties.map(function (faculty) {
-        return /*#__PURE__*/React.createElement(Faculty, {
-          faculty: faculty
-        });
-      });
-      return /*#__PURE__*/React.createElement("select", {
-        id: "faculties"
-      }, faculties);
-    }
-  }]);
-
-  return FacultyList;
-}(React.Component);
-
-var App = /*#__PURE__*/function (_React$Component5) {
-  _inherits(App, _React$Component5);
-
-  var _super5 = _createSuper(App);
+  var _super3 = _createSuper(App);
 
   function App(props) {
     var _this;
 
     _classCallCheck(this, App);
 
-    _this = _super5.call(this, props);
+    _this = _super3.call(this, props);
     _this.state = {
       students: [],
       faculties: []
@@ -31288,9 +31237,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, "Choose faculty:", /*#__PURE__*/React.createElement(FacultyList, {
-        faculties: this.state.faculties
-      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(StudentList, {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
       }));
     }

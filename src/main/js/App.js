@@ -18,14 +18,6 @@ class Student extends React.Component{
 	}
 }
 
-class Faculty extends React.Component{
-	render() {
-		return (
-			<option value={this.props.faculty.name}>{this.props.faculty.name}</option>
-		)
-	}
-}
-
 
 class StudentList extends React.Component{
 	render() {
@@ -49,17 +41,6 @@ class StudentList extends React.Component{
 	}
 }
 
-class FacultyList extends React.Component{
-	render() {
-		const faculties = this.props.faculties.map(faculty =>
-			<Faculty faculty={faculty} />
-		);
-		return (
-				<select	id="faculties">{faculties}</select>
-				
-		)
-	}
-}
 
 
 class App extends React.Component {
@@ -85,10 +66,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-			Choose faculty: 
-				<FacultyList faculties={this.state.faculties} />
-				<br />
-				<br />
 				<StudentList students={this.state.students} />
 			</div>
 		)
