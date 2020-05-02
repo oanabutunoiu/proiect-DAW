@@ -31272,7 +31272,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
 
       client({
         method: 'GET',
-        path: '/faculties'
+        path: '/api/faculties'
       }).done(function (response) {
         _this2.setState({
           faculties: response.entity._embedded.faculties
@@ -31280,7 +31280,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
       });
       client({
         method: 'GET',
-        path: '/students'
+        path: '/api/students'
       }).done(function (response) {
         _this2.setState({
           students: response.entity._embedded.students
