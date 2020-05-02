@@ -1,6 +1,19 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const client = require('./client');
+
+class Student extends React.Component{
+	render() {
+		return (
+			<tr>
+				<td>{this.props.student.cnp}</td>
+				<td>{this.props.student.name}</td>
+				<td>{this.props.student.registrationNo}</td>
+				<td>{this.props.student.faculty.props.name}</td>
+				<td>{this.props.student.year}</td>
+			</tr>
+		)
+	}
+}
 
 
 class StudentList extends React.Component{
@@ -21,20 +34,6 @@ class StudentList extends React.Component{
 					{students}
 				</tbody>
 			</table>
-		)
-	}
-}
-
-class Student extends React.Component{
-	render() {
-		return (
-			<tr>
-				<td>{this.props.student.cnp}</td>
-				<td>{this.props.student.name}</td>
-				<td>{this.props.student.registrationNo}</td>
-				<td>{this.props.student.faculty}</td>
-				<td>{this.props.student.year}</td>
-			</tr>
 		)
 	}
 }

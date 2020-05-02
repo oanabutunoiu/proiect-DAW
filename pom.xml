@@ -20,6 +20,20 @@
 	</properties>
 
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/com.github.eirslett/frontend-plugin-core -->
+		<dependency>
+			<groupId>com.github.eirslett</groupId>
+			<artifactId>frontend-plugin-core</artifactId>
+			<version>1.10.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.eirslett/frontend-maven-plugin -->
+		<dependency>
+			<groupId>com.github.eirslett</groupId>
+			<artifactId>frontend-maven-plugin</artifactId>
+			<version>1.10.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
