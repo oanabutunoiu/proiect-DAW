@@ -31275,7 +31275,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         path: '/faculties'
       }).then(function (response) {
         _this2.setState({
-          faculties: JSON.parse(response.entity)
+          faculties: response.entity
         });
       });
       client({
@@ -31283,7 +31283,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         path: '/students'
       }).then(function (response) {
         _this2.setState({
-          students: JSON.parse(response.entity)
+          students: response.entity
         });
       });
     }
