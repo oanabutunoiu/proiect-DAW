@@ -7,7 +7,8 @@ const client = require('./client');
 class Student extends React.Component{
 	render() {
 		return (
-			<tr>
+			<tr class="row">
+				<td><input type="radio" name="student" value={this.props.student.id} /></td>
 				<td>{this.props.student.cnp}</td>
 				<td>{this.props.student.name}</td>
 				<td>{this.props.student.registrationNo}</td>
@@ -28,6 +29,7 @@ class StudentList extends React.Component{
 			<table>
 				<tbody>
 					<tr>
+						<th></th>
 						<th>CNP</th>
 						<th>Full Name</th>
 						<th>Registration No.</th>
@@ -67,6 +69,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<StudentList students={this.state.students} />
+				<br /> <br /> <input type="button" name="OK" class="ok"	value="Insert student" />
 			</div>
 		)
 	}

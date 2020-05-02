@@ -31161,7 +31161,13 @@ var Student = /*#__PURE__*/function (_React$Component) {
   _createClass(Student, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
+      return /*#__PURE__*/React.createElement("tr", {
+        "class": "row"
+      }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
+        type: "radio",
+        name: "student",
+        value: this.props.student.id
+      })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
   }]);
 
@@ -31187,7 +31193,7 @@ var StudentList = /*#__PURE__*/function (_React$Component2) {
           student: student
         });
       });
-      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "CNP"), /*#__PURE__*/React.createElement("th", null, "Full Name"), /*#__PURE__*/React.createElement("th", null, "Registration No."), /*#__PURE__*/React.createElement("th", null, "Faculty"), /*#__PURE__*/React.createElement("th", null, "Year")), students));
+      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null), /*#__PURE__*/React.createElement("th", null, "CNP"), /*#__PURE__*/React.createElement("th", null, "Full Name"), /*#__PURE__*/React.createElement("th", null, "Registration No."), /*#__PURE__*/React.createElement("th", null, "Faculty"), /*#__PURE__*/React.createElement("th", null, "Year")), students));
     }
   }]);
 
@@ -31239,6 +31245,11 @@ var App = /*#__PURE__*/function (_React$Component3) {
     value: function render() {
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
+      }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("input", {
+        type: "button",
+        name: "OK",
+        "class": "ok",
+        value: "Insert student"
       }));
     }
   }]);
