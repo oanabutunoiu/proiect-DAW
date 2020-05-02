@@ -69,7 +69,10 @@ class App extends React.Component {
 		return (
 			<div>
 				<StudentList students={this.state.students} />
-				<br /> <br /> <input type="button" name="OK" class="ok"	value="Insert student" />
+				<br /> <br />
+				<div id = "myButtons">
+				 	<input type="button" id="insert" class="ok" value="Insert student" />
+				</div>
 			</div>
 		)
 	}
