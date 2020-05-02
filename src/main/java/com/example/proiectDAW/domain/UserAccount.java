@@ -4,7 +4,7 @@ package com.example.proiectDAW.domain;
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class UserAccount {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,10 +41,10 @@ public class User {
 		this.role = role;
 	}
 	
-	public User() {
+	public UserAccount() {
 		
 	}
-	public User(String username, String password, String role) {
+	public UserAccount(String username, String password, String role) {
 		super();
 		this.username = username;
 		this.password = password;

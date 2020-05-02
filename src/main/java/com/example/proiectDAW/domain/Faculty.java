@@ -42,6 +42,12 @@ public class Faculty {
 		super();
 		this.name = name;
 	}
+	
+	public Faculty() {
+		
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Faculty [students=" + students + ", id=" + id + ", name=" + name + "]";

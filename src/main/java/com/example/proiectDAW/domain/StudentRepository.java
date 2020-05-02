@@ -8,6 +8,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface StudentRepository extends CrudRepository<Student, Long> {
+	
 	List<Student> findByName(@Param("name") String name);
 	List<Student> findByCnp(@Param("cnp") String cnp);
 	List<Student> findByRegistrationNo(@Param("registrationNo") String registrationNo);

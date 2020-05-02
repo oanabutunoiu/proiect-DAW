@@ -61,6 +61,21 @@ public class Student {
 		this.registrationNo = registrationNo;
 		this.year = year;
 	}
+	
+	public Student(String cnp, String name, String registrationNo, Faculty faculty, int year) {
+		super();
+		this.cnp = cnp;
+		this.name = name;
+		this.registrationNo = registrationNo;
+		this.faculty = faculty;
+		this.year = year;
+	}
+	
+	public Student() {
+		
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Student [faculty=" + faculty + ", id=" + id + ", cnp=" + cnp + ", name=" + name + ", registrationNo="
