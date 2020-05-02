@@ -31269,18 +31269,18 @@ var App = /*#__PURE__*/function (_React$Component5) {
 
       client({
         method: 'GET',
-        path: '/students'
-      }).done(function (response) {
-        _this2.setState({
-          students: response.entity._embedded.students
-        });
-      });
-      client({
-        method: 'GET',
         path: '/faculties'
       }).done(function (response) {
         _this2.setState({
           faculties: response.entity._embedded.faculties
+        });
+      });
+      client({
+        method: 'GET',
+        path: '/students'
+      }).done(function (response) {
+        _this2.setState({
+          students: response.entity._embedded.students
         });
       });
     }
