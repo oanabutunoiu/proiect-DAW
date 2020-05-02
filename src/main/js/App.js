@@ -68,13 +68,16 @@ class App extends React.Component {
 	}
 
 	componentDidMount() { 
-		client({method: 'GET', path: '/students'}).done(response => {
-			this.setState({students: response.entity._embedded.students});
-		});
 		
 		client({method: 'GET', path: '/faculties'}).done(response => {
 			this.setState({faculties: response.entity._embedded.faculties});
 		});
+		
+		client({method: 'GET', path: '/students'}).done(response => {
+			this.setState({students: response.entity._embedded.students});
+		});
+		
+		
 	}
 
 	render() {
