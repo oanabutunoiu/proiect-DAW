@@ -31207,7 +31207,6 @@ var StudentList = /*#__PURE__*/function (_React$Component3) {
     value: function render() {
       var students = this.props.students.map(function (student) {
         return /*#__PURE__*/React.createElement(Student, {
-          key: student._links.self.href,
           student: student
         });
       });
@@ -31234,7 +31233,6 @@ var FacultyList = /*#__PURE__*/function (_React$Component4) {
     value: function render() {
       var faculties = this.props.faculties.map(function (faculty) {
         return /*#__PURE__*/React.createElement(Faculty, {
-          key: faculty._links.self.href,
           faculty: faculty
         });
       });

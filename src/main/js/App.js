@@ -30,7 +30,7 @@ class Faculty extends React.Component{
 class StudentList extends React.Component{
 	render() {
 		const students = this.props.students.map(student =>
-			<Student key={student._links.self.href} student={student} />
+			<Student student={student} />
 		);
 		return (
 			<table>
@@ -52,7 +52,7 @@ class StudentList extends React.Component{
 class FacultyList extends React.Component{
 	render() {
 		const faculties = this.props.faculties.map(faculty =>
-			<Faculty key={faculty._links.self.href} faculty={faculty} />
+			<Faculty faculty={faculty} />
 		);
 		return (
 				<select	id="faculties">{faculties}</select>
