@@ -8,7 +8,7 @@ class Student extends React.Component{
 	render() {
 		return (
 			<tr class="row">
-				<td><input type="radio" name="student" value={this.props.student.id} /></td>
+				<td><input type="radio" name="student" onClick="studentSelected()" value={this.props.student.id} /></td>
 				<td>{this.props.student.cnp}</td>
 				<td>{this.props.student.name}</td>
 				<td>{this.props.student.registrationNo}</td>

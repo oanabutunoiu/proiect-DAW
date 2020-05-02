@@ -31166,6 +31166,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
+        onClick: "studentSelected()",
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -31245,12 +31246,14 @@ var App = /*#__PURE__*/function (_React$Component3) {
     value: function render() {
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
-      }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("input", {
+      }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
+        id: "myButtons"
+      }, /*#__PURE__*/React.createElement("input", {
         type: "button",
-        name: "OK",
+        id: "insert",
         "class": "ok",
         value: "Insert student"
-      }));
+      })));
     }
   }]);
 
