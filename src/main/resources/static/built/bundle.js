@@ -31275,7 +31275,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         path: '/faculties'
       }).then(function (response) {
         _this2.setState({
-          faculties: response.json()
+          faculties: json.faculties
         });
       });
       client({
@@ -31283,7 +31283,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         path: '/students'
       }).then(function (response) {
         _this2.setState({
-          students: response.json()
+          students: json.students
         });
       });
     }

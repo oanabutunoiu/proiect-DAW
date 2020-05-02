@@ -72,11 +72,11 @@ class App extends React.Component {
 	componentDidMount() { 
 		
 		client({method: 'GET', path: '/faculties'}).then(response => {
-			this.setState({faculties: response.json()});
+			this.setState({faculties: json.faculties});
 		});
 		
 		client({method: 'GET', path: '/students'}).then(response => {
-			this.setState({students: response.json()});
+			this.setState({students: json.students});
 		});
 		
 		
