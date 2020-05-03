@@ -33,12 +33,12 @@ class Util {
 
 	updateButtonPressed(){
 	
-		var currentStudent = this.studentList.find(element => element.id == $('input[name="student"]:checked').val());
-		document.getElementById('fname').value = currentStudent.name;
-		document.getElementById('cnp').value = currentStudent.cnp;
-		document.getElementById('regno').value = currentStudent.registrationNo;
-		document.getElementById('year').value = currentStudent.year;
-		document.getElementById('facultySelect').value = currentStudent.faculty.id;
+		this.item = this.studentList.find(element => element.id == $('input[name="student"]:checked').val());
+		document.getElementById('fname').value = this.item.name;
+		document.getElementById('cnp').value = this.item.cnp;
+		document.getElementById('regno').value = this.item.registrationNo;
+		document.getElementById('year').value = this.item.year;
+		document.getElementById('facultySelect').value = this.item.faculty.id;
 		document.getElementById('updateDeleteForm').style.visibility = "visible";
 	}
 
@@ -68,17 +68,16 @@ class Util {
 	  }
 	
 	
-	handleSubmit(event) {
-	    event.preventDefault();
-	    const {item} = this.state;
+	handleSubmit() {
+	    const myItem = this.item;
 
 	    fetch('/studentsbycnp/', {
-	      method: (item.cnp) ? 'PUT' : 'POST',
+	      method: (myItem.cnp) ? 'PUT' : 'POST',
 	      headers: {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json'
 	      },
-	      body: JSON.stringify(item),
+	      body: JSON.stringify(myItem),
 	    });
 	    this.props.history.push('/students');
 	  }
