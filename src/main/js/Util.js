@@ -2,8 +2,16 @@ $ = require('jquery');
 
 class Util {
 	
+	
 	constructor(){
 		this.studentList = [];
+		this.item = {
+			    name: '',
+			    cnp: '',
+			    registrationNo: '',
+			    year: 0,
+			    faculty: undefined
+			  };
 	}
 	
 	studentSelected(){
@@ -40,11 +48,40 @@ class Util {
 		
 			document.getElementById('updateDeleteForm').style.visibility = "hidden";
 			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
+			remove($('input[name="student"]:checked').val());
 		}
 		$('input[name="student"]').prop('checked', false);
-		this.selected = '0';
 		
 	}
+	
+	remove(id) {
+	    fetch('/students/{id}', {
+	      method: 'DELETE',
+	      headers: {
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json'
+	      }
+	    }).then(() => {
+	      let updatedStudents= [this.studentList].filter(i => i.id !== id);
+	      this.studentList = updateStudents;
+	    });
+	  }
+	
+	
+	handleSubmit(event) {
+	    event.preventDefault();
+	    const {item} = this.state;
+
+	    fetch('/studentsbycnp/', {
+	      method: (item.cnp) ? 'PUT' : 'POST',
+	      headers: {
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json'
+	      },
+	      body: JSON.stringify(item),
+	    });
+	    this.props.history.push('/students');
+	  }
 }
 
 const util = new Util();

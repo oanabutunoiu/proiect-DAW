@@ -2,11 +2,14 @@
 
 const React = require('react');
 const ReactDOM = require('react-dom');
+const ReactRouterDOM = require('react-router-dom');
 const client = require('./client');
 window.util = require('./Util');
 $ = require('jquery');
 
 class Student extends React.Component{
+	
+	
 	render() {
 		return (
 			<tr class="row">
@@ -23,6 +26,7 @@ class Student extends React.Component{
 
 
 class StudentList extends React.Component{
+	
 	render() {
 		const students = this.props.students.map(student =>
 			<Student key={student.id} student={student} />
@@ -60,7 +64,7 @@ class FacultyList extends React.Component{
 			<Faculty key={faculty.id} faculty={faculty} />
 		);
 		return (
-			<select id = "facultySelect" name = "facultySelect">
+			<select id = "facultySelect" name = "facultySelect" required>
 					{faculties}
 			</select>
 		)
@@ -70,11 +74,13 @@ class FacultyList extends React.Component{
 
 
 class App extends React.Component {
-
+	
 	constructor(props) {
 		super(props);
 		this.state = {students: [], faculties: []};
 	}
+	
+	
 
 	componentDidMount() { 
 		
@@ -103,17 +109,17 @@ class App extends React.Component {
 				 	<br />
 				 	<br />
 				</div>
-				<form id = "updateDeleteForm">
+				<form id = "updateDeleteForm" method ="post" onSubmit = {window.util.handleSubmit(this)}>
 					<label for="fname">Full name:  </label> 
-					<input type="text" id="fname" name="fname" /><br />
+					<input type="text" id="fname" name="fname" required /><br />
 					<label for="cnp">CNP:  </label>
-					<input type="text" id="cnp" name="cnp" /><br />
+					<input type="text" id="cnp" name="cnp" required /><br />
 					<label for="regno">Registration Number:  </label>
-					<input type="text" id="regno" name="regno" /><br />
+					<input type="text" id="regno" name="regno" required /><br />
 					<label for="facultySelect">Faculty:  </label>
 					<FacultyList faculties ={this.state.faculties} /> <br />
 					<label for="year">Year: </label>
-					<select id="year" name = "year">
+					<select id="year" name = "year" required>
 					  <option value="1">1</option>
 					  <option value="2">2</option>
 					  <option value="3">3</option>
@@ -129,6 +135,7 @@ class App extends React.Component {
 	
 }
 
+export default withRouter(App);
 
 ReactDOM.render(
 		<App />,

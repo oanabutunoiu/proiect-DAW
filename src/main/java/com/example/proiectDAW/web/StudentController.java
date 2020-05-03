@@ -34,6 +34,14 @@ public class StudentController {
 				: null;
 	}
 	
+	@GetMapping("/studentsbycnp/{cnp}")
+
+	public Student findStudentByCnp(@PathVariable String cnp) {
+		return !studentRepository.findByCnp(cnp).isEmpty()
+				? studentRepository.findByCnp(cnp).get(0)
+				: null;
+	}
+	
 	@PostMapping(value = "/students", consumes = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Student postStudent(@RequestBody Student student) {
