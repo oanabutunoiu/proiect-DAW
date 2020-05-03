@@ -3,9 +3,10 @@
 const $ = require('jquery');
 
 class Util {
-
+	
 	constructor(){
 		this.selected = '0';
+		this.studentList = [];
 	}
 	
 	studentSelected(){
