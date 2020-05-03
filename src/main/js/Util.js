@@ -21,7 +21,7 @@ class Util{
 		document.getElementById('regno').value = '';
 		document.getElementById('year').value = '';
 		document.getElementById('facultySelect').value = '';
-		document.getElementById('updateDeleteForm').visibility = visible;
+		document.getElementById('updateDeleteForm').style.visibility = visible;
 	}
 		
 }

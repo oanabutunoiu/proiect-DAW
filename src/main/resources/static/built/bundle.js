@@ -41963,7 +41963,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('regno').value = '';
       document.getElementById('year').value = '';
       document.getElementById('facultySelect').value = '';
-      document.getElementById('updateDeleteForm').visibility = visible;
+      document.getElementById('updateDeleteForm').style.visibility = visible;
     }
   }]);
 
@@ -42245,8 +42245,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         value: "Insert student",
         onClick: util.insertButtonPressed
       })), /*#__PURE__*/React.createElement("form", {
-        id: "updateDeleteForm",
-        visibility: "hidden"
+        id: "updateDeleteForm"
       }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
       }, "Full name:  "), /*#__PURE__*/React.createElement("input", {
@@ -42284,7 +42283,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         type: "submit",
         "class": "ok",
         value: "Submit"
-      })));
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)));
     }
   }, {
     key: "updateButtonPressed",
@@ -42294,7 +42293,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
       document.getElementById('regno').value = "{this.state.students[util.selected].registrationNo}";
       document.getElementById('year').value = "{this.state.students[util.selected].year}";
       document.getElementById('facultySelect').value = "{this.state.students[util.selected].faculty.name}";
-      document.getElementById('updateDeleteForm').display = visible;
+      document.getElementById('updateDeleteForm').style.visibility = visible;
     }
   }, {
     key: "deleteButtonPressed",
@@ -42302,7 +42301,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
       var c = confirm('Delete selected student?');
 
       if (c == true) {
-        document.getElementById('updateDeleteForm').display = hidden;
+        document.getElementById('updateDeleteForm').style.visibility = hidden;
         document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
       }
     }
