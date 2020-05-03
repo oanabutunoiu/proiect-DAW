@@ -41927,6 +41927,77 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/main/js/Util.js":
+/*!*****************************!*\
+  !*** ./src/main/js/Util.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+var Util = /*#__PURE__*/function () {
+  function Util() {
+    _classCallCheck(this, Util);
+
+    this.selected = '0';
+  }
+
+  _createClass(Util, [{
+    key: "studentSelected",
+    value: function studentSelected() {
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={util.updateButtonPressed} /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={util.deleteButtonPressed} /> <br /><br />";
+      selected = $('input[name=student]:checked').val();
+    }
+  }, {
+    key: "insertButtonPressed",
+    value: function insertButtonPressed() {
+      document.getElementById('fname').value = '';
+      document.getElementById('cnp').value = '';
+      document.getElementById('regno').value = '';
+      document.getElementById('year').value = '';
+      document.getElementById('facultySelect').value = '';
+      document.getElementById('updateDeleteForm').style.visibility = "visible";
+    }
+  }, {
+    key: "updateButtonPressed",
+    value: function updateButtonPressed() {
+      document.getElementById('fname').value = students[selected].name;
+      document.getElementById('cnp').value = students[selected].cnp;
+      document.getElementById('regno').value = students[selected].registrationNo;
+      document.getElementById('year').value = students[selected].year;
+      document.getElementById('facultySelect').value = students[selected].faculty.name;
+      document.getElementById('updateDeleteForm').style.visibility = "visible";
+    }
+  }, {
+    key: "deleteButtonPressed",
+    value: function deleteButtonPressed() {
+      var c = confirm('Delete selected student?');
+
+      if (c == true) {
+        document.getElementById('updateDeleteForm').style.visibility = "hidden";
+        document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
+      }
+    }
+  }]);
+
+  return Util;
+}();
+
+var util = new Util();
+module.exports = util;
+
+/***/ }),
+
 /***/ "./src/main/js/api/uriListConverter.js":
 /*!*********************************************!*\
   !*** ./src/main/js/api/uriListConverter.js ***!
@@ -42000,6 +42071,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function (r
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42028,6 +42102,8 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
+var util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
+
 $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var Student = /*#__PURE__*/function (_React$Component) {
@@ -42049,7 +42125,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
-        onClick: "studentSelected()",
+        onClick: util.studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -42190,7 +42266,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         id: "insert",
         "class": "ok",
         value: "Insert student",
-        onClick: "insertButtonPressed()"
+        onClick: util.insertButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm"
       }, /*#__PURE__*/React.createElement("label", {

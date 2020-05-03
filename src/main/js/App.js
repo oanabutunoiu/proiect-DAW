@@ -1,13 +1,17 @@
+'use strict';
+
 const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
+const util = require('./Util');
 $ = require('jquery');
+var students;
 
 class Student extends React.Component{
 	render() {
 		return (
 			<tr class="row">
-				<td><input type="radio" name="student" onClick="studentSelected()" value={this.props.student.id} /></td>
+				<td><input type="radio" name="student" onClick={util.studentSelected} value={this.props.student.id} /></td>
 				<td>{this.props.student.cnp}</td>
 				<td>{this.props.student.name}</td>
 				<td>{this.props.student.registrationNo}</td>
@@ -88,12 +92,13 @@ class App extends React.Component {
 	
 
 	render() {
+		students = {this.state.students};
 		return (
 			<div>
 				<StudentList students={this.state.students} />
 				<br /> <br />
 				<div id = "myButtons">
-				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick="insertButtonPressed()" />
+				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick={util.insertButtonPressed} />
 				 	<br />
 				 	<br />
 				</div>
@@ -128,6 +133,4 @@ ReactDOM.render(
 		<App />,
 		document.getElementById('react')
 	)
-	
-var students = App.default.state.students;
 	
