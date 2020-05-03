@@ -8,9 +8,9 @@ class Util {
 	}
 	
 	studentSelected(){
-		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={global.util.insertButtonPressed} />" + 
-		"       <input type='button' id='update' class='ok' value='Update student information'  onClick={global.util.updateButtonPressed} /> " +
-		"       <input type='button' id='delete' class='ok' value='Delete student' onClick={global.util.deleteButtonPressed} /> <br /><br />";
+		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={window.util.insertButtonPressed} />" + 
+		"       <input type='button' id='update' class='ok' value='Update student information'  onClick={window.util.updateButtonPressed} /> " +
+		"       <input type='button' id='delete' class='ok' value='Delete student' onClick={window.util.deleteButtonPressed} /> <br /><br />";
 		selected = $('input[name=student]:checked').val();
 	}
 	

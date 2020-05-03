@@ -41927,37 +41927,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/webpack/buildin/global.js":
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
 /***/ "./src/main/js/Util.js":
 /*!*****************************!*\
   !*** ./src/main/js/Util.js ***!
@@ -41984,7 +41953,7 @@ var Util = /*#__PURE__*/function () {
   _createClass(Util, [{
     key: "studentSelected",
     value: function studentSelected() {
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={global.util.insertButtonPressed} />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={global.util.updateButtonPressed} /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={global.util.deleteButtonPressed} /> <br /><br />";
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={window.util.insertButtonPressed} />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={window.util.updateButtonPressed} /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={window.util.deleteButtonPressed} /> <br /><br />";
       selected = $('input[name=student]:checked').val();
     }
   }, {
@@ -42100,9 +42069,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function (r
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42131,7 +42097,7 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
-var util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
+window.util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
@@ -42154,7 +42120,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
-        onClick: global.util.studentSelected,
+        onClick: window.util.studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -42286,8 +42252,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
   }, {
     key: "render",
     value: function render() {
-      util.studentList = this.state.students;
-      global.util = util;
+      window.util.studentList = this.state.students;
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
       }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
@@ -42297,7 +42262,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         id: "insert",
         "class": "ok",
         value: "Insert student",
-        onClick: util.insertButtonPressed
+        onClick: window.util.insertButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm"
       }, /*#__PURE__*/React.createElement("label", {
@@ -42345,7 +42310,6 @@ var App = /*#__PURE__*/function (_React$Component5) {
 }(React.Component);
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react'));
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
