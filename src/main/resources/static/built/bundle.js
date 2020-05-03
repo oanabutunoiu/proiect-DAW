@@ -42144,7 +42144,7 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
-document.util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
+window.util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
 $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var Student = /*#__PURE__*/function (_React$Component) {
@@ -42166,7 +42166,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
-        onClick: document.util.studentSelected,
+        onClick: window.util.studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -42299,7 +42299,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
   }, {
     key: "render",
     value: function render() {
-      document.util.studentList = this.state.students;
+      window.util.studentList = this.state.students;
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
       }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
@@ -42309,11 +42309,11 @@ var App = /*#__PURE__*/function (_React$Component5) {
         id: "insert",
         "class": "ok",
         value: "Insert student",
-        onClick: document.util.insertButtonPressed
+        onClick: window.util.insertButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm",
         method: "post",
-        onSubmit: document.util.handleSubmit
+        onSubmit: window.util.handleSubmit
       }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
       }, "Full name:  "), /*#__PURE__*/React.createElement("input", {
