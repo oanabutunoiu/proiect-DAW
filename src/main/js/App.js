@@ -98,10 +98,10 @@ class App extends React.Component {
 				<div id = "myButtons">
 				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick={util.insertButtonPressed} />
 				</div>
-				<form id = "updateDeleteForm" display="none">
+				<form id = "updateDeleteForm" visibility="hidden">
 					<label for="fname">Full name:  </label> 
 					<input type="text" id="fname" name="fname" /><br />
-					<label for="cnp">CNP:  </label><br />
+					<label for="cnp">CNP:  </label>
 					<input type="text" id="cnp" name="cnp" /><br />
 					<label for="regno">Registration Number:  </label>
 					<input type="text" id="regno" name="regno" /><br />
@@ -127,12 +127,14 @@ class App extends React.Component {
 		document.getElementById('regno').value = "{this.state.students[util.selected].registrationNo}";
 		document.getElementById('year').value = "{this.state.students[util.selected].year}";
 		document.getElementById('facultySelect').value = "{this.state.students[util.selected].faculty.name}";
-		document.getElementById('updateDeleteForm').display = initial;
+		document.getElementById('updateDeleteForm').display = visible;
 	}
 	
 	deleteButtonPressed(){
 		var c = confirm('Delete selected student?');
 		if (c == true){
+			
+			document.getElementById('updateDeleteForm').display = hidden;
 			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
 		}
 			
