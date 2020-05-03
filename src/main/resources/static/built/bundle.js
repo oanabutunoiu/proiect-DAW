@@ -42285,30 +42285,28 @@ var App = /*#__PURE__*/function (_React$Component5) {
         value: "Submit"
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)));
     }
-  }, {
-    key: "updateButtonPressed",
-    value: function updateButtonPressed() {
-      document.getElementById('fname').value = "{this.state.students[util.selected].name}";
-      document.getElementById('cnp').value = "{this.state.students[util.selected].cnp}";
-      document.getElementById('regno').value = "{this.state.students[util.selected].registrationNo}";
-      document.getElementById('year').value = "{this.state.students[util.selected].year}";
-      document.getElementById('facultySelect').value = "{this.state.students[util.selected].faculty.name}";
-      document.getElementById('updateDeleteForm').style.visibility = visible;
-    }
-  }, {
-    key: "deleteButtonPressed",
-    value: function deleteButtonPressed() {
-      var c = confirm('Delete selected student?');
-
-      if (c == true) {
-        document.getElementById('updateDeleteForm').style.visibility = hidden;
-        document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
-      }
-    }
   }]);
 
   return App;
 }(React.Component);
+
+function updateButtonPressed() {
+  document.getElementById('fname').value = "{this.state.students[util.selected].name}";
+  document.getElementById('cnp').value = "{this.state.students[util.selected].cnp}";
+  document.getElementById('regno').value = "{this.state.students[util.selected].registrationNo}";
+  document.getElementById('year').value = "{this.state.students[util.selected].year}";
+  document.getElementById('facultySelect').value = "{this.state.students[util.selected].faculty.name}";
+  document.getElementById('updateDeleteForm').style.visibility = visible;
+}
+
+function deleteButtonPressed() {
+  var c = confirm('Delete selected student?');
+
+  if (c == true) {
+    document.getElementById('updateDeleteForm').style.visibility = hidden;
+    document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
+  }
+}
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react'));
 
