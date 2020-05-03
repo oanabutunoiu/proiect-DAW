@@ -56,7 +56,7 @@ class Util {
 	}
 	
 	remove(id) {
-	    fetch('/students/{id}', {
+	    fetch('/students/${id}', {
 	      method: 'DELETE',
 	      headers: {
 	        'Accept': 'application/json',
