@@ -41940,7 +41940,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var Util = /*#__PURE__*/function () {
   function Util() {
@@ -42098,8 +42098,7 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
 window.util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
-
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var Student = /*#__PURE__*/function (_React$Component) {
   _inherits(Student, _React$Component);

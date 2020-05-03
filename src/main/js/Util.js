@@ -1,4 +1,4 @@
-const $ = require('jquery');
+$ = require('jquery');
 
 class Util {
 	
