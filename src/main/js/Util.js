@@ -1,4 +1,4 @@
-$ = require('jquery');
+const $ = require('jquery');
 const client = require('./client');
 
 class Util {
