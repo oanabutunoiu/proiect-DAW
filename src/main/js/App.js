@@ -122,28 +122,27 @@ class App extends React.Component {
 		)
 	}
 	
-	
-}
-
-function updateButtonPressed(){
-	
-	document.getElementById('fname').value = "{this.state.students[util.selected].name}";
-	document.getElementById('cnp').value = "{this.state.students[util.selected].cnp}";
-	document.getElementById('regno').value = "{this.state.students[util.selected].registrationNo}";
-	document.getElementById('year').value = "{this.state.students[util.selected].year}";
-	document.getElementById('facultySelect').value = "{this.state.students[util.selected].faculty.name}";
-	document.getElementById('updateDeleteForm').style.visibility = visible;
-}
-
-function deleteButtonPressed(){
-	var c = confirm('Delete selected student?');
-	if (c == true){
+	updateButtonPressed(){
 		
-		document.getElementById('updateDeleteForm').style.visibility = hidden;
-		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
+		document.getElementById('fname').value = "{this.state.students[util.selected].name}";
+		document.getElementById('cnp').value = "{this.state.students[util.selected].cnp}";
+		document.getElementById('regno').value = "{this.state.students[util.selected].registrationNo}";
+		document.getElementById('year').value = "{this.state.students[util.selected].year}";
+		document.getElementById('facultySelect').value = "{this.state.students[util.selected].faculty.name}";
+		document.getElementById('updateDeleteForm').style.visibility = visible;
 	}
-		
+
+	deleteButtonPressed(){
+		var c = confirm('Delete selected student?');
+		if (c == true){
+			
+			document.getElementById('updateDeleteForm').style.visibility = hidden;
+			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
+		}
+			
+	}
 }
+
 
 
 ReactDOM.render(
