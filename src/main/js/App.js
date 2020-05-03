@@ -96,6 +96,7 @@ class App extends React.Component {
 	render() {
 		
 		window.util.studentList = this.state.students;
+		window.util.facultyList = this.state.faculties;
 		
 		return (
 			<div>
