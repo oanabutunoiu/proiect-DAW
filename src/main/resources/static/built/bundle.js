@@ -41965,9 +41965,6 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -41987,7 +41984,7 @@ var Util = /*#__PURE__*/function () {
   _createClass(Util, [{
     key: "studentSelected",
     value: function studentSelected() {
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={util.updateButtonPressed} /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={util.deleteButtonPressed} /> <br /><br />";
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={global.util.insertButtonPressed} />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={global.util.updateButtonPressed} /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={global.util.deleteButtonPressed} /> <br /><br />";
       selected = $('input[name=student]:checked').val();
     }
   }, {
@@ -42157,7 +42154,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
-        onClick: util.studentSelected,
+        onClick: global.util.studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
