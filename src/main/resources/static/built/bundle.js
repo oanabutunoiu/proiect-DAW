@@ -41969,11 +41969,11 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "updateButtonPressed",
     value: function updateButtonPressed() {
-      document.getElementById('fname').value = studentList[selected].name;
-      document.getElementById('cnp').value = studentList[selected].cnp;
-      document.getElementById('regno').value = studentList[selected].registrationNo;
-      document.getElementById('year').value = studentList[selected].year;
-      document.getElementById('facultySelect').value = studentList[selected].faculty.name;
+      document.getElementById('fname').value = this.studentList[selected].name;
+      document.getElementById('cnp').value = this.studentList[selected].cnp;
+      document.getElementById('regno').value = this.studentList[selected].registrationNo;
+      document.getElementById('year').value = this.studentList[selected].year;
+      document.getElementById('facultySelect').value = this.studentList[selected].faculty.name;
       document.getElementById('updateDeleteForm').style.visibility = "visible";
     }
   }, {
@@ -41985,6 +41985,8 @@ var Util = /*#__PURE__*/function () {
         document.getElementById('updateDeleteForm').style.visibility = "hidden";
         document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} /> <br /><br />";
       }
+
+      $('input[name=student]').prop('checked', false);
     }
   }]);
 
