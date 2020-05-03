@@ -1,5 +1,3 @@
-'use strict';
-
 const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
@@ -96,7 +94,9 @@ class App extends React.Component {
 				<StudentList students={this.state.students} />
 				<br /> <br />
 				<div id = "myButtons">
-				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick={util.insertButtonPressed} />
+				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick={util.insertButtonPressed} />" +
+				 	<br />
+				 	<br />
 				</div>
 				<form id = "updateDeleteForm">
 					<label for="fname">Full name:  </label> 
