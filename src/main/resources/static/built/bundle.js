@@ -46418,7 +46418,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
   return App;
 }(React.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (withRouter(App));
+/* harmony default export */ __webpack_exports__["default"] = (ReactRouterDOM.withRouter(App));
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react'));
 
 /***/ }),

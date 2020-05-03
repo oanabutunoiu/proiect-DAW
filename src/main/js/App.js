@@ -135,7 +135,7 @@ class App extends React.Component {
 	
 }
 
-export default withRouter(App);
+export default ReactRouterDOM.withRouter(App);
 
 ReactDOM.render(
 		<App />,
