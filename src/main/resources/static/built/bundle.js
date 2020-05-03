@@ -41952,8 +41952,18 @@ var Util = /*#__PURE__*/function () {
   _createClass(Util, [{
     key: "studentSelected",
     value: function studentSelected() {
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + " <br /><br /><br /> <input type='button' id='update' class='ok' value='Update student information' /> " + " <br /><br /><br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed}/>" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={updateButtonPressed}/> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={deleteButtonPressed} /> <br /><br />";
       selected = $('input[name=student]:checked').val();
+    }
+  }, {
+    key: "insertButtonPressed",
+    value: function insertButtonPressed() {
+      document.getElementById('fname').value = '';
+      document.getElementById('cnp').value = '';
+      document.getElementById('regno').value = '';
+      document.getElementById('year').value = '';
+      document.getElementById('facultySelect').value = '';
+      document.getElementById('updateDeleteForm').display = initial;
     }
   }]);
 
@@ -42117,6 +42127,7 @@ var StudentList = /*#__PURE__*/function (_React$Component2) {
     value: function render() {
       var students = this.props.students.map(function (student) {
         return /*#__PURE__*/React.createElement(Student, {
+          key: student.id,
           student: student
         });
       });
@@ -42127,17 +42138,70 @@ var StudentList = /*#__PURE__*/function (_React$Component2) {
   return StudentList;
 }(React.Component);
 
-var App = /*#__PURE__*/function (_React$Component3) {
-  _inherits(App, _React$Component3);
+var Faculty = /*#__PURE__*/function (_React$Component3) {
+  _inherits(Faculty, _React$Component3);
 
-  var _super3 = _createSuper(App);
+  var _super3 = _createSuper(Faculty);
+
+  function Faculty() {
+    _classCallCheck(this, Faculty);
+
+    return _super3.apply(this, arguments);
+  }
+
+  _createClass(Faculty, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("option", {
+        value: this.props.faculty.id
+      }, this.props.faculty.name);
+    }
+  }]);
+
+  return Faculty;
+}(React.Component);
+
+var FacultyList = /*#__PURE__*/function (_React$Component4) {
+  _inherits(FacultyList, _React$Component4);
+
+  var _super4 = _createSuper(FacultyList);
+
+  function FacultyList() {
+    _classCallCheck(this, FacultyList);
+
+    return _super4.apply(this, arguments);
+  }
+
+  _createClass(FacultyList, [{
+    key: "render",
+    value: function render() {
+      var faculties = this.props.faculties.map(function (faculty) {
+        return /*#__PURE__*/React.createElement(Faculty, {
+          key: faculty.id,
+          faculty: faculty
+        });
+      });
+      return /*#__PURE__*/React.createElement("select", {
+        id: "facultySelect",
+        name: "facultySelect"
+      }, faculties);
+    }
+  }]);
+
+  return FacultyList;
+}(React.Component);
+
+var App = /*#__PURE__*/function (_React$Component5) {
+  _inherits(App, _React$Component5);
+
+  var _super5 = _createSuper(App);
 
   function App(props) {
     var _this;
 
     _classCallCheck(this, App);
 
-    _this = _super3.call(this, props);
+    _this = _super5.call(this, props);
     _this.state = {
       students: [],
       faculties: []
@@ -42178,8 +42242,68 @@ var App = /*#__PURE__*/function (_React$Component3) {
         type: "button",
         id: "insert",
         "class": "ok",
-        value: "Insert student"
-      })));
+        value: "Insert student",
+        onClick: util.insertButtonPressed
+      })), /*#__PURE__*/React.createElement("div", {
+        id: "updateDeleteForm",
+        display: "none"
+      }, /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("label", {
+        "for": "fname"
+      }, "Full name:  "), /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        id: "fname",
+        name: "fname"
+      }), ">", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", {
+        "for": "cnp"
+      }, "CNP:  "), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        id: "cnp",
+        name: "cnp"
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", {
+        "for": "regno"
+      }, "Registration Number:  "), /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        id: "regno",
+        name: "regno"
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", {
+        "for": "facultySelect"
+      }, "Faculty:  "), /*#__PURE__*/React.createElement(FacultyList, {
+        faculties: this.state.faculties
+      }), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", {
+        "for": "year"
+      }, "Year: "), /*#__PURE__*/React.createElement("select", {
+        id: "year",
+        name: "year"
+      }, /*#__PURE__*/React.createElement("option", {
+        value: "1"
+      }, "1"), /*#__PURE__*/React.createElement("option", {
+        value: "2"
+      }, "2"), /*#__PURE__*/React.createElement("option", {
+        value: "3"
+      }, "3")), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+        type: "submit",
+        "class": "ok",
+        value: "Submit"
+      }))));
+    }
+  }, {
+    key: "updateButtonPressed",
+    value: function updateButtonPressed() {
+      document.getElementById('fname').value = "{this.state.students[util.selected].name}";
+      document.getElementById('cnp').value = "{this.state.students[util.selected].cnp}";
+      document.getElementById('regno').value = "{this.state.students[util.selected].registrationNo}";
+      document.getElementById('year').value = "{this.state.students[util.selected].year}";
+      document.getElementById('facultySelect').value = "{this.state.students[util.selected].faculty.name}";
+      document.getElementById('updateDeleteForm').display = initial;
+    }
+  }, {
+    key: "deleteButtonPressed",
+    value: function deleteButtonPressed() {
+      var c = confirm('Delete selected student?');
+
+      if (c == true) {
+        document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
+      }
     }
   }]);
 
