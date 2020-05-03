@@ -41927,54 +41927,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./src/main/js/Util.js":
-/*!*****************************!*\
-  !*** ./src/main/js/Util.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-var Util = /*#__PURE__*/function () {
-  function Util() {
-    _classCallCheck(this, Util);
-
-    this.selected = '0';
-  }
-
-  _createClass(Util, [{
-    key: "studentSelected",
-    value: function studentSelected() {
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={this.updateButtonPressed} /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={this.deleteButtonPressed} /> <br /><br />";
-      selected = $('input[name=student]:checked').val();
-    }
-  }, {
-    key: "insertButtonPressed",
-    value: function insertButtonPressed() {
-      document.getElementById('fname').value = '';
-      document.getElementById('cnp').value = '';
-      document.getElementById('regno').value = '';
-      document.getElementById('year').value = '';
-      document.getElementById('facultySelect').value = '';
-      document.getElementById('updateDeleteForm').style.visibility = "visible";
-    }
-  }]);
-
-  return Util;
-}();
-
-var util = new Util();
-module.exports = util;
-
-/***/ }),
-
 /***/ "./src/main/js/api/uriListConverter.js":
 /*!*********************************************!*\
   !*** ./src/main/js/api/uriListConverter.js ***!
@@ -42075,8 +42027,6 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
-
-var util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
 
 $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
@@ -42241,7 +42191,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         "class": "ok",
         value: "Insert student",
         onClick: util.insertButtonPressed
-      }), "\" +", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm"
       }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
@@ -42282,32 +42232,13 @@ var App = /*#__PURE__*/function (_React$Component5) {
         value: "Submit"
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)));
     }
-  }, {
-    key: "updateButtonPressed",
-    value: function updateButtonPressed() {
-      document.getElementById('fname').value = "{this.state.students[util.selected].name}";
-      document.getElementById('cnp').value = "{this.state.students[util.selected].cnp}";
-      document.getElementById('regno').value = "{this.state.students[util.selected].registrationNo}";
-      document.getElementById('year').value = "{this.state.students[util.selected].year}";
-      document.getElementById('facultySelect').value = "{this.state.students[util.selected].faculty.name}";
-      document.getElementById('updateDeleteForm').style.visibility = "visible";
-    }
-  }, {
-    key: "deleteButtonPressed",
-    value: function deleteButtonPressed() {
-      var c = confirm('Delete selected student?');
-
-      if (c == true) {
-        document.getElementById('updateDeleteForm').style.visibility = "hidden";
-        document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
-      }
-    }
   }]);
 
   return App;
 }(React.Component);
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react'));
+var students = App.state.students;
 
 /***/ }),
 

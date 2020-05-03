@@ -1,20 +1,13 @@
-$ = require('jquery');
-
-
-class Util{
+var selected = '0';
 	
-	constructor(){
-		this.selected = '0';
-	}
-	
-	studentSelected(){
-		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />" + 
-		"       <input type='button' id='update' class='ok' value='Update student information'  onClick={this.updateButtonPressed} /> " +
-		"       <input type='button' id='delete' class='ok' value='Delete student' onClick={this.deleteButtonPressed} /> <br /><br />";
+function studentSelected(){
+		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='insertButtonPressed()' />" + 
+		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='updateButtonPressed()' /> " +
+		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='deleteButtonPressed' /> <br /><br />";
 		selected = $('input[name=student]:checked').val();
 	}
 	
-	insertButtonPressed(){
+function insertButtonPressed(){
 		
 		document.getElementById('fname').value = '';
 		document.getElementById('cnp').value = '';
@@ -23,9 +16,24 @@ class Util{
 		document.getElementById('facultySelect').value = '';
 		document.getElementById('updateDeleteForm').style.visibility = "visible";
 	}
-		
+
+
+function updateButtonPressed(){
+	
+	document.getElementById('fname').value = students[selected].name;
+	document.getElementById('cnp').value = students[selected].cnp;
+	document.getElementById('regno').value = students[selected].registrationNo;
+	document.getElementById('year').value = students[selected].year;
+	document.getElementById('facultySelect').value = students[selected].faculty.name;
+	document.getElementById('updateDeleteForm').style.visibility = "visible";
 }
 
-const util = new Util();
-
-module.exports = util;
+function deleteButtonPressed(){
+	var c = confirm('Delete selected student?');
+	if (c == true){
+		
+		document.getElementById('updateDeleteForm').style.visibility = "hidden";
+		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='insertButtonPressed()' />";
+	}
+		
+}
