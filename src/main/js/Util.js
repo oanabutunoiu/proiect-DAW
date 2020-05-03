@@ -48,7 +48,7 @@ class Util {
 		
 			document.getElementById('updateDeleteForm').style.visibility = "hidden";
 			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
-			remove($('input[name="student"]:checked').val());
+			this.remove($('input[name="student"]:checked').val());
 		}
 		$('input[name="student"]').prop('checked', false);
 		
@@ -71,15 +71,15 @@ class Util {
 	handleSubmit() {
 	    const myItem = this.item;
 
-	    fetch('/studentsbycnp/', {
-	      method: (myItem.cnp) ? 'PUT' : 'POST',
+	    fetch('/students', {
+	      method: (myItem.id) ? 'PUT' : 'POST',
 	      headers: {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json'
 	      },
 	      body: JSON.stringify(myItem),
 	    });
-	    this.props.history.push('/students');
+	    
 	  }
 }
 

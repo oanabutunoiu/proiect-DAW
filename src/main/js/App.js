@@ -1,8 +1,5 @@
-
-
 const React = require('react');
 const ReactDOM = require('react-dom');
-const ReactRouterDOM = require('react-router-dom');
 const client = require('./client');
 window.util = require('./Util');
 $ = require('jquery');
@@ -134,8 +131,6 @@ class App extends React.Component {
 	}
 	
 }
-
-export default ReactRouterDOM.withRouter(App);
 
 ReactDOM.render(
 		<App />,
