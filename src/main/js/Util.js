@@ -63,22 +63,24 @@ class Util {
 	      }
 	    }).then(() => {
 	      let updatedStudents= [this.studentList].filter(i => i.id !== id);
-	      this.studentList = updateStudents;
+	      this.studentList = updatedStudents;
 	    });
 	  }
 	
 	
 	handleSubmit() {
 	    const myItem = this.item;
-
-	    fetch('/students', {
-	      method: (myItem.id) ? 'PUT' : 'POST',
-	      headers: {
-	        'Accept': 'application/json',
-	        'Content-Type': 'application/json'
-	      },
-	      body: JSON.stringify(myItem),
-	    });
+	    
+	    client({method: (myItem.id) ? 'PUT' : 'POST',
+	  	      headers: {
+	  	        'Accept': 'application/json',
+	  	        'Content-Type': 'application/json'
+	  	      },
+	  	      body: JSON.stringify(myItem),
+	  	      path: '/students'
+	  	    }).then(response => {
+			this.studentList.push(myItem);
+		});
 	    
 	  }
 }

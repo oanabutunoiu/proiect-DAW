@@ -42012,20 +42012,25 @@ var Util = /*#__PURE__*/function () {
         var updatedStudents = [_this.studentList].filter(function (i) {
           return i.id !== id;
         });
-        _this.studentList = updateStudents;
+        _this.studentList = updatedStudents;
       });
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit() {
+      var _this2 = this;
+
       var myItem = this.item;
-      fetch('/students', {
+      client({
         method: myItem.id ? 'PUT' : 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(myItem)
+        body: JSON.stringify(myItem),
+        path: '/students'
+      }).then(function (response) {
+        _this2.studentList.push(myItem);
       });
     }
   }]);
