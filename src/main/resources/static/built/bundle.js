@@ -41974,7 +41974,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('cnp').value = currentStudent.cnp;
       document.getElementById('regno').value = currentStudent.registrationNo;
       document.getElementById('year').value = currentStudent.year;
-      document.getElementById('facultySelect').value = currentStudent.faculty.name;
+      document.getElementById('facultySelect').value = currentStudent.faculty.id;
       document.getElementById('updateDeleteForm').style.visibility = "visible";
     }
   }, {
