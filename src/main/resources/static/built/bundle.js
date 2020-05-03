@@ -42004,7 +42004,7 @@ var Util = /*#__PURE__*/function () {
     value: function remove(id) {
       var _this = this;
 
-      fetch('/students/${id}', {
+      fetch('/students/' + id, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
