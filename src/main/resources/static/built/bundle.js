@@ -41952,7 +41952,7 @@ var Util = /*#__PURE__*/function () {
   _createClass(Util, [{
     key: "studentSelected",
     value: function studentSelected() {
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={updateButtonPressed} /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={deleteButtonPressed} /> <br /><br />";
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick={this.updateButtonPressed} /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick={this.deleteButtonPressed} /> <br /><br />";
       selected = $('input[name=student]:checked').val();
     }
   }, {
