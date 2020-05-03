@@ -1,4 +1,5 @@
 $ = require('jquery');
+const client = require('./client');
 
 class Util {
 	
@@ -72,10 +73,6 @@ class Util {
 	    const myItem = this.item;
 	    
 	    client({method: (myItem.id) ? 'PUT' : 'POST',
-	  	      headers: {
-	  	        'Accept': 'application/json',
-	  	        'Content-Type': 'application/json'
-	  	      },
 	  	      body: JSON.stringify(myItem),
 	  	      path: '/students'
 	  	    }).then(response => {

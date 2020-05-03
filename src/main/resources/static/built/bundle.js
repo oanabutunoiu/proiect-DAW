@@ -41942,6 +41942,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
+var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
+
 var Util = /*#__PURE__*/function () {
   function Util() {
     _classCallCheck(this, Util);
@@ -42023,10 +42025,6 @@ var Util = /*#__PURE__*/function () {
       var myItem = this.item;
       client({
         method: myItem.id ? 'PUT' : 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
         body: JSON.stringify(myItem),
         path: '/students'
       }).then(function (response) {
