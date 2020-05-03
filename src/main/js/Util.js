@@ -83,8 +83,12 @@ class Util {
 				    faculty: window.util.facultyList.find(element => element.id == $('#facultySelect').val())
 				  };
 	    
-	    fetch('/students', {method: (myItem.id !== undefined) ? 'PUT' : 'POST',
+	    fetch((myItem.id === undefined) ? '/students' : '/students/' + myItem.id, {method: (myItem.id !== undefined) ? 'PUT' : 'POST',
 	  	      body: JSON.stringify(myItem),
+	  	      headers: {
+		        'Accept': 'application/json',
+		        'Content-Type': 'application/json'
+		      },
 	  	      withCredentials: true
 	  	    }).then(response => {
 			//window.util.studentList.push(myItem);

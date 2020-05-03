@@ -42028,9 +42028,13 @@ var Util = /*#__PURE__*/function () {
           return element.id == $('#facultySelect').val();
         })
       };
-      fetch('/students', {
+      fetch(myItem.id === undefined ? '/students' : '/students/' + myItem.id, {
         method: myItem.id !== undefined ? 'PUT' : 'POST',
         body: JSON.stringify(myItem),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
         withCredentials: true
       }).then(function (response) {//window.util.studentList.push(myItem);
       });
