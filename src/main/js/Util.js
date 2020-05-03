@@ -25,11 +25,12 @@ class Util {
 
 	updateButtonPressed(){
 	
-		document.getElementById('fname').value = this.studentList[$('input[name="student"]:checked').val()].name;
-		document.getElementById('cnp').value = this.studentList[$('input[name="student"]:checked').val()].cnp;
-		document.getElementById('regno').value = this.studentList[$('input[name="student"]:checked').val()].registrationNo;
-		document.getElementById('year').value = this.studentList[$('input[name="student"]:checked').val()].year;
-		document.getElementById('facultySelect').value = this.studentList[$('input[name="student"]:checked').val()].faculty.name;
+		var currentStudent = studentList.find(element => element.id == $('input[name="student"]:checked').val());
+		document.getElementById('fname').value = currentStudent.name;
+		document.getElementById('cnp').value = currentStudent.cnp;
+		document.getElementById('regno').value = currentStudent.registrationNo;
+		document.getElementById('year').value = currentStudent.year;
+		document.getElementById('facultySelect').value = currentStudent.faculty.name;
 		document.getElementById('updateDeleteForm').style.visibility = "visible";
 	}
 
@@ -38,7 +39,7 @@ class Util {
 		if (c == true)	{
 		
 			document.getElementById('updateDeleteForm').style.visibility = "hidden";
-			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} /> <br /><br />";
+			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
 		}
 		$('input[name="student"]').prop('checked', false);
 		this.selected = '0';
