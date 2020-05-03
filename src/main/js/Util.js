@@ -86,4 +86,5 @@ class Util {
 	  }
 }
 
-export default Util;
+const u = new Util();
+module.exports = u;
