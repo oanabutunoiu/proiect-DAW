@@ -31147,6 +31147,8 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
+var selected;
+
 var Student = /*#__PURE__*/function (_React$Component) {
   _inherits(Student, _React$Component);
 
@@ -31166,7 +31168,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
-        onClick: "studentSelected()",
+        onClick: studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -31240,6 +31242,12 @@ var App = /*#__PURE__*/function (_React$Component3) {
           students: response.entity
         });
       });
+    }
+  }, {
+    key: "studentSelected",
+    value: function studentSelected() {
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + " <br /> <input type='button' id='update' class='ok' value='Update student information' /> " + " <br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
+      selected = $('input[name=student]:checked').val();
     }
   }, {
     key: "render",
