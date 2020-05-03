@@ -42019,7 +42019,7 @@ var Util = /*#__PURE__*/function () {
     key: "handleSubmit",
     value: function handleSubmit() {
       var myItem = window.util.item;
-      myItem = {
+      if (myIten.id === undefined) myItem = {
         name: document.getElementById('fname').value,
         cnp: document.getElementById('cnp').value,
         registrationNo: document.getElementById('regno').value,
