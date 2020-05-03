@@ -93,7 +93,7 @@ class App extends React.Component {
 				<StudentList students={this.state.students} />
 				<br /> <br />
 				<div id = "myButtons">
-				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick={util.insertButtonPressed} />
+				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick="insertButtonPressed()" />
 				 	<br />
 				 	<br />
 				</div>

@@ -42190,7 +42190,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         id: "insert",
         "class": "ok",
         value: "Insert student",
-        onClick: util.insertButtonPressed
+        onClick: "insertButtonPressed()"
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm"
       }, /*#__PURE__*/React.createElement("label", {
