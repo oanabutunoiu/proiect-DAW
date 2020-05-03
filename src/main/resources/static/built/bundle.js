@@ -42005,7 +42005,8 @@ var Util = /*#__PURE__*/function () {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache'
         },
         withCredentials: true
       }).then();
@@ -42028,7 +42029,8 @@ var Util = /*#__PURE__*/function () {
         body: JSON.stringify(myItem),
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache'
         },
         withCredentials: true
       }).then();

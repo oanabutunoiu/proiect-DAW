@@ -62,7 +62,8 @@ class Util {
 	      method: 'DELETE',
 	      headers: {
 	        'Accept': 'application/json',
-	        'Content-Type': 'application/json'
+	        'Content-Type': 'application/json',
+	        'Cache-Control': 'no-cache'
 	      },
 	      withCredentials: true
 	    }).then();
@@ -84,7 +85,8 @@ class Util {
 	  	      body: JSON.stringify(myItem),
 	  	      headers: {
 		        'Accept': 'application/json',
-		        'Content-Type': 'application/json'
+		        'Content-Type': 'application/json',
+		        'Cache-Control': 'no-cache'
 		      },
 	  	      withCredentials: true
 	  	    }).then();
