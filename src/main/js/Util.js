@@ -11,7 +11,7 @@ class Util {
 		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + 
 		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " +
 		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
-		this.selected = $('input[name=student]:checked').val();
+		this.selected = $('input[name="student"]:checked').val();
 	}
 	
 	insertButtonPressed(){
@@ -42,7 +42,7 @@ class Util {
 			document.getElementById('updateDeleteForm').style.visibility = "hidden";
 			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} /> <br /><br />";
 		}
-		$('input[name=student]').prop('checked', false);
+		$('input[name="student"]').prop('checked', false);
 		this.selected = '0';
 		
 	}
