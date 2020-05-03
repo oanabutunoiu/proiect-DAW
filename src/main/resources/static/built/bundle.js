@@ -41946,7 +41946,6 @@ var Util = /*#__PURE__*/function () {
   function Util() {
     _classCallCheck(this, Util);
 
-    this.selected = '0';
     this.studentList = [];
   }
 
@@ -41987,7 +41986,7 @@ var Util = /*#__PURE__*/function () {
       }
 
       $('input[name="student"]').prop('checked', false);
-      this.selected = '0';
+      delete this.selected;
     }
   }]);
 
