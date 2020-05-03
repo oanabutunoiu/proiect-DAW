@@ -42008,12 +42008,7 @@ var Util = /*#__PURE__*/function () {
           'Content-Type': 'application/json'
         },
         withCredentials: true
-      }).then(function () {
-        var updatedStudents = [window.util.studentList].filter(function (i) {
-          return i.id !== id;
-        });
-        window.util.studentList = updatedStudents;
-      });
+      }).then();
     }
   }, {
     key: "handleSubmit",
@@ -42036,8 +42031,7 @@ var Util = /*#__PURE__*/function () {
           'Content-Type': 'application/json'
         },
         withCredentials: true
-      }).then(function (response) {//window.util.studentList.push(myItem);
-      });
+      }).then();
     }
   }]);
 

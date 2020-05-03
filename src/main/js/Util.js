@@ -65,10 +65,7 @@ class Util {
 	        'Content-Type': 'application/json'
 	      },
 	      withCredentials: true
-	    }).then(() => {
-	      let updatedStudents= [window.util.studentList].filter(i => i.id !== id);
-	      window.util.studentList = updatedStudents;
-	    });
+	    }).then();
 	  }
 	
 	
@@ -90,9 +87,7 @@ class Util {
 		        'Content-Type': 'application/json'
 		      },
 	  	      withCredentials: true
-	  	    }).then(response => {
-			//window.util.studentList.push(myItem);
-		});
+	  	    }).then();
 	    
 	  }
 }
