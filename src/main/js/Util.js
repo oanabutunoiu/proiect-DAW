@@ -25,7 +25,7 @@ class Util {
 
 	updateButtonPressed(){
 	
-		var currentStudent = studentList.find(element => element.id == $('input[name="student"]:checked').val());
+		var currentStudent = this.studentList.find(element => element.id == $('input[name="student"]:checked').val());
 		document.getElementById('fname').value = currentStudent.name;
 		document.getElementById('cnp').value = currentStudent.cnp;
 		document.getElementById('regno').value = currentStudent.registrationNo;

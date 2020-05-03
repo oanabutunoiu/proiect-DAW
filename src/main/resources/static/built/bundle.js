@@ -41967,7 +41967,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "updateButtonPressed",
     value: function updateButtonPressed() {
-      var currentStudent = studentList.find(function (element) {
+      var currentStudent = this.studentList.find(function (element) {
         return element.id == $('input[name="student"]:checked').val();
       });
       document.getElementById('fname').value = currentStudent.name;
