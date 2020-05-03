@@ -41961,7 +41961,7 @@ var Util = /*#__PURE__*/function () {
   _createClass(Util, [{
     key: "studentSelected",
     value: function studentSelected() {
-      this.item = this.studentList.find(function (element) {
+      window.util.item = window.util.studentList.find(function (element) {
         return element.id == $('input[name="student"]:checked').val();
       });
       document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
@@ -41979,11 +41979,11 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "updateButtonPressed",
     value: function updateButtonPressed() {
-      document.getElementById('fname').value = this.item.name;
-      document.getElementById('cnp').value = this.item.cnp;
-      document.getElementById('regno').value = this.item.registrationNo;
-      document.getElementById('year').value = this.item.year;
-      document.getElementById('facultySelect').value = this.item.faculty.id;
+      document.getElementById('fname').value = window.util.item.name;
+      document.getElementById('cnp').value = window.util.item.cnp;
+      document.getElementById('regno').value = window.util.item.registrationNo;
+      document.getElementById('year').value = window.util.item.year;
+      document.getElementById('facultySelect').value = window.util.item.faculty.id;
       document.getElementById('updateDeleteForm').style.visibility = "visible";
     }
   }, {
@@ -41994,7 +41994,7 @@ var Util = /*#__PURE__*/function () {
       if (c == true) {
         document.getElementById('updateDeleteForm').style.visibility = "hidden";
         document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
-        this.remove(parseInt($('input[name="student"]:checked').val()));
+        window.util.remove(parseInt($('input[name="student"]:checked').val()));
       }
 
       $('input[name="student"]').prop('checked', false);
@@ -42002,8 +42002,6 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "remove",
     value: function remove(id) {
-      var _this = this;
-
       fetch('/students/' + id, {
         method: 'DELETE',
         headers: {
@@ -42012,25 +42010,22 @@ var Util = /*#__PURE__*/function () {
         },
         withCredentials: true
       }).then(function () {
-        var updatedStudents = [_this.studentList].filter(function (i) {
+        var updatedStudents = [window.util.studentList].filter(function (i) {
           return i.id !== id;
         });
-        _this.studentList = updatedStudents;
+        window.util.studentList = updatedStudents;
       });
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit() {
-      var _this2 = this;
-
       var myItem = this.item;
       client({
         method: myItem.id !== undefined ? 'PUT' : 'POST',
         body: JSON.stringify(myItem),
         path: '/students',
         withCredentials: true
-      }).then(function (response) {
-        _this2.studentList.push(myItem);
+      }).then(function (response) {//window.util.studentList.push(myItem);
       });
     }
   }]);

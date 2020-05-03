@@ -17,7 +17,7 @@ class Util {
 	
 	studentSelected(){
 		
-		this.item = this.studentList.find(element => element.id == $('input[name="student"]:checked').val());
+		window.util.item = window.util.studentList.find(element => element.id == $('input[name="student"]:checked').val());
 		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + 
 		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " +
 		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
@@ -37,11 +37,11 @@ class Util {
 
 	updateButtonPressed(){
 	
-		document.getElementById('fname').value = this.item.name;
-		document.getElementById('cnp').value = this.item.cnp;
-		document.getElementById('regno').value = this.item.registrationNo;
-		document.getElementById('year').value = this.item.year;
-		document.getElementById('facultySelect').value = this.item.faculty.id;
+		document.getElementById('fname').value = window.util.item.name;
+		document.getElementById('cnp').value = window.util.item.cnp;
+		document.getElementById('regno').value = window.util.item.registrationNo;
+		document.getElementById('year').value = window.util.item.year;
+		document.getElementById('facultySelect').value = window.util.item.faculty.id;
 		document.getElementById('updateDeleteForm').style.visibility = "visible";
 	}
 
@@ -51,7 +51,7 @@ class Util {
 		
 			document.getElementById('updateDeleteForm').style.visibility = "hidden";
 			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
-			this.remove(parseInt($('input[name="student"]:checked').val()));
+			window.util.remove(parseInt($('input[name="student"]:checked').val()));
 		}
 		$('input[name="student"]').prop('checked', false);
 		
@@ -66,8 +66,8 @@ class Util {
 	      },
 	      withCredentials: true
 	    }).then(() => {
-	      let updatedStudents= [this.studentList].filter(i => i.id !== id);
-	      this.studentList = updatedStudents;
+	      let updatedStudents= [window.util.studentList].filter(i => i.id !== id);
+	      window.util.studentList = updatedStudents;
 	    });
 	  }
 	
@@ -80,7 +80,7 @@ class Util {
 	  	      path: '/students',
 	  	      withCredentials: true
 	  	    }).then(response => {
-			this.studentList.push(myItem);
+			//window.util.studentList.push(myItem);
 		});
 	    
 	  }
