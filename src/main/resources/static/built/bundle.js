@@ -41936,8 +41936,6 @@ if (false) {} else {
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -42025,7 +42023,7 @@ var Util = /*#__PURE__*/function () {
     key: "handleSubmit",
     value: function handleSubmit() {
       var myItem = window.util.item;
-      myItem = (_readOnlyError("myItem"), {
+      myItem = {
         name: document.getElementById('fname').value,
         cnp: document.getElementById('cnp').value,
         registrationNo: document.getElementById('regno').value,
@@ -42033,7 +42031,7 @@ var Util = /*#__PURE__*/function () {
         faculty: window.util.facultyList.find(function (element) {
           return element.id == $('#facultySelect').val();
         })
-      });
+      };
       client({
         method: _typeof(myItem.id) !== undefined ? 'PUT' : 'POST',
         body: JSON.stringify(myItem),

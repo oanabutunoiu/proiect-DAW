@@ -74,7 +74,7 @@ class Util {
 	
 	
 	handleSubmit() {
-	    const myItem = window.util.item;
+	    var myItem = window.util.item;
 	    myItem = {
 				    name: document.getElementById('fname').value,
 				    cnp: document.getElementById('cnp').value,
