@@ -31043,6 +31043,42 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/main/js/Util.js":
+/*!*****************************!*\
+  !*** ./src/main/js/Util.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Util = /*#__PURE__*/function () {
+  function Util() {
+    _classCallCheck(this, Util);
+
+    this.selected = '0';
+  }
+
+  _createClass(Util, [{
+    key: "studentSelected",
+    value: function studentSelected() {
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + " <br /> <input type='button' id='update' class='ok' value='Update student information' /> " + " <br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
+      selected = $('input[name=student]:checked').val();
+    }
+  }]);
+
+  return Util;
+}();
+
+var util = new Util();
+module.exports = util;
+
+/***/ }),
+
 /***/ "./src/main/js/api/uriListConverter.js":
 /*!*********************************************!*\
   !*** ./src/main/js/api/uriListConverter.js ***!
@@ -31147,6 +31183,8 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
+var util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
+
 var selected;
 
 var Student = /*#__PURE__*/function (_React$Component) {
@@ -31168,7 +31206,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
-        onClick: Util.functions.studentSelected,
+        onClick: Util.studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -31202,26 +31240,6 @@ var StudentList = /*#__PURE__*/function (_React$Component2) {
 
   return StudentList;
 }(React.Component);
-
-var Util = /*#__PURE__*/function () {
-  function Util() {
-    _classCallCheck(this, Util);
-  }
-
-  _createClass(Util, [{
-    key: "studentSelected",
-    value: function studentSelected() {
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + " <br /> <input type='button' id='update' class='ok' value='Update student information' /> " + " <br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
-      selected = $('input[name=student]:checked').val();
-    }
-  }]);
-
-  return Util;
-}();
-
-module.exports = {
-  functions: Util
-};
 
 var App = /*#__PURE__*/function (_React$Component3) {
   _inherits(App, _React$Component3);
