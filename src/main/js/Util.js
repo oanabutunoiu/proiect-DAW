@@ -19,6 +19,7 @@ class Util {
 		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + 
 		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " +
 		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
+		this.item = this.studentList.find(element => element.id == $('input[name="student"]:checked').val());
 	}
 	
 	insertButtonPressed(){
@@ -34,7 +35,6 @@ class Util {
 
 	updateButtonPressed(){
 	
-		this.item = this.studentList.find(element => element.id == $('input[name="student"]:checked').val());
 		document.getElementById('fname').value = this.item.name;
 		document.getElementById('cnp').value = this.item.cnp;
 		document.getElementById('regno').value = this.item.registrationNo;
@@ -61,7 +61,8 @@ class Util {
 	      headers: {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json'
-	      }
+	      },
+	      withCredentials: true
 	    }).then(() => {
 	      let updatedStudents= [this.studentList].filter(i => i.id !== id);
 	      this.studentList = updatedStudents;
@@ -72,9 +73,10 @@ class Util {
 	handleSubmit() {
 	    const myItem = this.item;
 	    
-	    client({method: (myItem.id) ? 'PUT' : 'POST',
+	    client({method: (myItem.id !== undefined) ? 'PUT' : 'POST',
 	  	      body: JSON.stringify(myItem),
-	  	      path: '/students'
+	  	      path: '/students',
+	  	      withCredentials: true
 	  	    }).then(response => {
 			this.studentList.push(myItem);
 		});

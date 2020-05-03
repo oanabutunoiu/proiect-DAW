@@ -41962,6 +41962,9 @@ var Util = /*#__PURE__*/function () {
     key: "studentSelected",
     value: function studentSelected() {
       document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
+      this.item = this.studentList.find(function (element) {
+        return element.id == $('input[name="student"]:checked').val();
+      });
     }
   }, {
     key: "insertButtonPressed",
@@ -41976,9 +41979,6 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "updateButtonPressed",
     value: function updateButtonPressed() {
-      this.item = this.studentList.find(function (element) {
-        return element.id == $('input[name="student"]:checked').val();
-      });
       document.getElementById('fname').value = this.item.name;
       document.getElementById('cnp').value = this.item.cnp;
       document.getElementById('regno').value = this.item.registrationNo;
@@ -42009,7 +42009,8 @@ var Util = /*#__PURE__*/function () {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        withCredentials: true
       }).then(function () {
         var updatedStudents = [_this.studentList].filter(function (i) {
           return i.id !== id;
@@ -42024,9 +42025,10 @@ var Util = /*#__PURE__*/function () {
 
       var myItem = this.item;
       client({
-        method: myItem.id ? 'PUT' : 'POST',
+        method: myItem.id !== undefined ? 'PUT' : 'POST',
         body: JSON.stringify(myItem),
-        path: '/students'
+        path: '/students',
+        withCredentials: true
       }).then(function (response) {
         _this2.studentList.push(myItem);
       });
