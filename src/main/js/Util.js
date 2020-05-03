@@ -48,7 +48,7 @@ class Util {
 		
 			document.getElementById('updateDeleteForm').style.visibility = "hidden";
 			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
-			this.remove($('input[name="student"]:checked').val());
+			this.remove(parseInt($('input[name="student"]:checked').val()));
 		}
 		$('input[name="student"]').prop('checked', false);
 		
