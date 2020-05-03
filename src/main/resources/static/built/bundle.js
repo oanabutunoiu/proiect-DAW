@@ -41934,6 +41934,10 @@ if (false) {} else {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -41960,12 +41964,31 @@ var Util = /*#__PURE__*/function () {
 
   _createClass(Util, [{
     key: "studentSelected",
-    value: function studentSelected() {
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
-      this.item = this.studentList.find(function (element) {
-        return element.id == $('input[name="student"]:checked').val();
-      });
-    }
+    value: function () {
+      var _studentSelected = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.item = this.studentList.find(function (element) {
+                  return element.id == $('input[name="student"]:checked').val();
+                });
+                document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function studentSelected() {
+        return _studentSelected.apply(this, arguments);
+      }
+
+      return studentSelected;
+    }()
   }, {
     key: "insertButtonPressed",
     value: function insertButtonPressed() {
@@ -42144,7 +42167,7 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
-window.util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
+document.util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
 $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var Student = /*#__PURE__*/function (_React$Component) {
@@ -42166,7 +42189,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
-        onClick: window.util.studentSelected,
+        onClick: document.util.studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -42299,7 +42322,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
   }, {
     key: "render",
     value: function render() {
-      window.util.studentList = this.state.students;
+      document.util.studentList = this.state.students;
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
       }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
@@ -42309,11 +42332,11 @@ var App = /*#__PURE__*/function (_React$Component5) {
         id: "insert",
         "class": "ok",
         value: "Insert student",
-        onClick: window.util.insertButtonPressed
+        onClick: document.util.insertButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm",
         method: "post",
-        onSubmit: window.util.handleSubmit
+        onSubmit: document.util.handleSubmit
       }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
       }, "Full name:  "), /*#__PURE__*/React.createElement("input", {
