@@ -106,7 +106,7 @@ class App extends React.Component {
 				 	<br />
 				 	<br />
 				</div>
-				<form id = "updateDeleteForm" method ="post" onSubmit = {window.util.handleSubmit}>
+				<form id = "updateDeleteForm" method ="get" onSubmit = {window.util.handleSubmit}>
 					<label for="fname">Full name:  </label> 
 					<input type="text" id="fname" name="fname" required /><br />
 					<label for="cnp">CNP:  </label>

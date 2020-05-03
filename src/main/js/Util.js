@@ -75,7 +75,7 @@ class Util {
 	handleSubmit() {
 	    const myItem = this.item;
 	    
-	    client({method: (myItem.id !== undefined) ? 'PUT' : 'POST',
+	    client({method: (typeof myItem.id !== undefined) ? 'PUT' : 'POST',
 	  	      body: JSON.stringify(myItem),
 	  	      path: '/students',
 	  	      withCredentials: true

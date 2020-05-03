@@ -41934,6 +41934,8 @@ if (false) {} else {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -42021,7 +42023,7 @@ var Util = /*#__PURE__*/function () {
     value: function handleSubmit() {
       var myItem = this.item;
       client({
-        method: myItem.id !== undefined ? 'PUT' : 'POST',
+        method: _typeof(myItem.id) !== undefined ? 'PUT' : 'POST',
         body: JSON.stringify(myItem),
         path: '/students',
         withCredentials: true
@@ -42308,7 +42310,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         onClick: window.util.insertButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm",
-        method: "post",
+        method: "get",
         onSubmit: window.util.handleSubmit
       }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
