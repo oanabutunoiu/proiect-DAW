@@ -41931,9 +41931,11 @@ if (false) {} else {
 /*!*****************************!*\
   !*** ./src/main/js/Util.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -42038,8 +42040,7 @@ var Util = /*#__PURE__*/function () {
   return Util;
 }();
 
-var util = new Util();
-module.exports = util;
+/* harmony default export */ __webpack_exports__["default"] = (Util);
 
 /***/ }),
 
@@ -42144,7 +42145,7 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
-window.util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
+window.util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js")["default"];
 $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var Student = /*#__PURE__*/function (_React$Component) {
