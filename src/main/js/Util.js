@@ -74,7 +74,7 @@ class Util {
 	
 	handleSubmit() {
 	    var myItem = window.util.item;
-	    if (myIten.id === undefined)
+	    if (myItem.id === undefined)
 	    	myItem = {
 				    name: document.getElementById('fname').value,
 				    cnp: document.getElementById('cnp').value,
