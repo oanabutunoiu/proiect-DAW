@@ -41987,6 +41987,7 @@ var Util = /*#__PURE__*/function () {
       }
 
       $('input[name=student]').prop('checked', false);
+      this.selected = '0';
     }
   }]);
 

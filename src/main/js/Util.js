@@ -43,6 +43,7 @@ class Util {
 			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} /> <br /><br />";
 		}
 		$('input[name=student]').prop('checked', false);
+		this.selected = '0';
 		
 	}
 }
