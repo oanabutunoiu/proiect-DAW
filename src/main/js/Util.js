@@ -73,7 +73,7 @@ class Util {
 	
 	
 	handleSubmit() {
-	    const myItem = this.item;
+	    const myItem = window.util.item;
 	    
 	    client({method: (typeof myItem.id !== undefined) ? 'PUT' : 'POST',
 	  	      body: JSON.stringify(myItem),

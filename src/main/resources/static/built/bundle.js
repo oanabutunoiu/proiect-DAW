@@ -42021,7 +42021,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "handleSubmit",
     value: function handleSubmit() {
-      var myItem = this.item;
+      var myItem = window.util.item;
       client({
         method: _typeof(myItem.id) !== undefined ? 'PUT' : 'POST',
         body: JSON.stringify(myItem),
