@@ -75,16 +75,13 @@ class Util {
 	
 	handleSubmit() {
 	    const myItem = window.util.item;
-	    if (typeof myItem === undefined)
-	    	{
-	    		myItem = {
+	    myItem = {
 				    name: document.getElementById('fname').value,
 				    cnp: document.getElementById('cnp').value,
 				    registrationNo: document.getElementById('regno').value,
 				    year: document.getElementById('year').value,
 				    faculty: window.util.facultyList.find(element => element.id == $('#facultySelect').val())
 				  };
-	    	}
 	    
 	    client({method: (typeof myItem.id !== undefined) ? 'PUT' : 'POST',
 	  	      body: JSON.stringify(myItem),

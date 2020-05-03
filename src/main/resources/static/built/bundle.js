@@ -42025,19 +42025,15 @@ var Util = /*#__PURE__*/function () {
     key: "handleSubmit",
     value: function handleSubmit() {
       var myItem = window.util.item;
-
-      if (_typeof(myItem) === undefined) {
-        myItem = (_readOnlyError("myItem"), {
-          name: document.getElementById('fname').value,
-          cnp: document.getElementById('cnp').value,
-          registrationNo: document.getElementById('regno').value,
-          year: document.getElementById('year').value,
-          faculty: window.util.facultyList.find(function (element) {
-            return element.id == $('#facultySelect').val();
-          })
-        });
-      }
-
+      myItem = (_readOnlyError("myItem"), {
+        name: document.getElementById('fname').value,
+        cnp: document.getElementById('cnp').value,
+        registrationNo: document.getElementById('regno').value,
+        year: document.getElementById('year').value,
+        faculty: window.util.facultyList.find(function (element) {
+          return element.id == $('#facultySelect').val();
+        })
+      });
       client({
         method: _typeof(myItem.id) !== undefined ? 'PUT' : 'POST',
         body: JSON.stringify(myItem),
