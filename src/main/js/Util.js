@@ -1,6 +1,6 @@
 'use strict';
 
-$ = require('jquery');
+const $ = require('jquery');
 
 class Util {
 
@@ -28,11 +28,11 @@ class Util {
 
 	updateButtonPressed(){
 	
-		document.getElementById('fname').value = students[selected].name;
-		document.getElementById('cnp').value = students[selected].cnp;
-		document.getElementById('regno').value = students[selected].registrationNo;
-		document.getElementById('year').value = students[selected].year;
-		document.getElementById('facultySelect').value = students[selected].faculty.name;
+		document.getElementById('fname').value = studentList[selected].name;
+		document.getElementById('cnp').value = studentList[selected].cnp;
+		document.getElementById('regno').value = studentList[selected].registrationNo;
+		document.getElementById('year').value = studentList[selected].year;
+		document.getElementById('facultySelect').value = studentList[selected].faculty.name;
 		document.getElementById('updateDeleteForm').style.visibility = "visible";
 	}
 

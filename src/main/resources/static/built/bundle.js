@@ -41943,7 +41943,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var Util = /*#__PURE__*/function () {
   function Util() {
@@ -41971,11 +41971,11 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "updateButtonPressed",
     value: function updateButtonPressed() {
-      document.getElementById('fname').value = students[selected].name;
-      document.getElementById('cnp').value = students[selected].cnp;
-      document.getElementById('regno').value = students[selected].registrationNo;
-      document.getElementById('year').value = students[selected].year;
-      document.getElementById('facultySelect').value = students[selected].faculty.name;
+      document.getElementById('fname').value = studentList[selected].name;
+      document.getElementById('cnp').value = studentList[selected].cnp;
+      document.getElementById('regno').value = studentList[selected].registrationNo;
+      document.getElementById('year').value = studentList[selected].year;
+      document.getElementById('facultySelect').value = studentList[selected].faculty.name;
       document.getElementById('updateDeleteForm').style.visibility = "visible";
     }
   }, {
@@ -41985,7 +41985,7 @@ var Util = /*#__PURE__*/function () {
 
       if (c == true) {
         document.getElementById('updateDeleteForm').style.visibility = "hidden";
-        document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} />";
+        document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick={util.insertButtonPressed} /> <br /><br />";
       }
     }
   }]);
@@ -42104,7 +42104,9 @@ var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
 
 var util = __webpack_require__(/*! ./Util */ "./src/main/js/Util.js");
 
-$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+var studentList;
 
 var Student = /*#__PURE__*/function (_React$Component) {
   _inherits(Student, _React$Component);
@@ -42257,6 +42259,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
   }, {
     key: "render",
     value: function render() {
+      studentList = this.state.students;
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
       }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
@@ -42314,7 +42317,6 @@ var App = /*#__PURE__*/function (_React$Component5) {
 }(React.Component);
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('react'));
-var students = App["default"].state.students;
 
 /***/ }),
 

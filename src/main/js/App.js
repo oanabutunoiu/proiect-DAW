@@ -4,8 +4,8 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
 const util = require('./Util');
-$ = require('jquery');
-var students;
+const $ = require('jquery');
+var studentList;
 
 class Student extends React.Component{
 	render() {
@@ -92,7 +92,7 @@ class App extends React.Component {
 	
 
 	render() {
-		students = {this.state.students};
+		studentList = this.state.students;
 		return (
 			<div>
 				<StudentList students={this.state.students} />
