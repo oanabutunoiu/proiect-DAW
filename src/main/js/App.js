@@ -4,7 +4,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
 const util = require('./Util');
-var selected;
+$ = require('jquery');
 
 class Student extends React.Component{
 	render() {
