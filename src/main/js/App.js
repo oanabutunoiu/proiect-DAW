@@ -3,12 +3,13 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
+var selected;
 
 class Student extends React.Component{
 	render() {
 		return (
 			<tr class="row">
-				<td><input type="radio" name="student" onClick="studentSelected()" value={this.props.student.id} /></td>
+				<td><input type="radio" name="student" onClick={studentSelected} value={this.props.student.id} /></td>
 				<td>{this.props.student.cnp}</td>
 				<td>{this.props.student.name}</td>
 				<td>{this.props.student.registrationNo}</td>
@@ -63,6 +64,13 @@ class App extends React.Component {
 		});
 		
 		
+	}
+	
+	function studentSelected(){
+		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + 
+		" <br /> <input type='button' id='update' class='ok' value='Update student information' /> " +
+		" <br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
+		selected = $('input[name=student]:checked').val();
 	}
 
 	render() {
