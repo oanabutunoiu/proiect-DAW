@@ -41959,14 +41959,12 @@ var Util = /*#__PURE__*/function () {
   }
 
   _createClass(Util, [{
-    key: "attachFunctions",
-    value: function attachFunctions() {
-      $('input[name="student"]').attachEvent('onClick()', function () {
-        this.item = this.studentList.find(function (element) {
-          return element.id == $('input[name="student"]:checked').val();
-        });
-        document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
+    key: "studentSelected",
+    value: function studentSelected() {
+      this.item = this.studentList.find(function (element) {
+        return element.id == $('input[name="student"]:checked').val();
       });
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
     }
   }, {
     key: "insertButtonPressed",
@@ -42168,6 +42166,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
+        onClick: window.util.studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -42301,7 +42300,6 @@ var App = /*#__PURE__*/function (_React$Component5) {
     key: "render",
     value: function render() {
       window.util.studentList = this.state.students;
-      $.attachEvent('onLoad', window.util.attachFunctions());
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
       }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {

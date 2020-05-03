@@ -10,7 +10,7 @@ class Student extends React.Component{
 	render() {
 		return (
 			<tr class="row">
-				<td><input type="radio" name="student" value={this.props.student.id} /></td>
+				<td><input type="radio" name="student" onClick={window.util.studentSelected} value={this.props.student.id} /></td>
 				<td>{this.props.student.cnp}</td>
 				<td>{this.props.student.name}</td>
 				<td>{this.props.student.registrationNo}</td>
@@ -96,7 +96,7 @@ class App extends React.Component {
 	render() {
 		
 		window.util.studentList = this.state.students;
-		$.attachEvent('onLoad', window.util.attachFunctions());
+		
 		return (
 			<div>
 				<StudentList students={this.state.students} />
