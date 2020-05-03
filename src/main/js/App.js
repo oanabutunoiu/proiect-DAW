@@ -98,10 +98,9 @@ class App extends React.Component {
 				<div id = "myButtons">
 				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick={util.insertButtonPressed} />
 				</div>
-				<div id = "updateDeleteForm" display="none">
-				<form>
+				<form id = "updateDeleteForm" display="none">
 					<label for="fname">Full name:  </label> 
-					<input type="text" id="fname" name="fname" />><br />
+					<input type="text" id="fname" name="fname" /><br />
 					<label for="cnp">CNP:  </label><br />
 					<input type="text" id="cnp" name="cnp" /><br />
 					<label for="regno">Registration Number:  </label>
@@ -117,7 +116,6 @@ class App extends React.Component {
 					<br />
 					<input type="submit" class="ok" value="Submit" />
 				</form>
-				</div>
 			</div>
 		)
 	}

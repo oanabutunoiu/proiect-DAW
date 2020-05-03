@@ -42244,16 +42244,16 @@ var App = /*#__PURE__*/function (_React$Component5) {
         "class": "ok",
         value: "Insert student",
         onClick: util.insertButtonPressed
-      })), /*#__PURE__*/React.createElement("div", {
+      })), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm",
         display: "none"
-      }, /*#__PURE__*/React.createElement("form", null, /*#__PURE__*/React.createElement("label", {
+      }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
       }, "Full name:  "), /*#__PURE__*/React.createElement("input", {
         type: "text",
         id: "fname",
         name: "fname"
-      }), ">", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", {
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("label", {
         "for": "cnp"
       }, "CNP:  "), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
         type: "text",
@@ -42284,7 +42284,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         type: "submit",
         "class": "ok",
         value: "Submit"
-      }))));
+      })));
     }
   }, {
     key: "updateButtonPressed",
