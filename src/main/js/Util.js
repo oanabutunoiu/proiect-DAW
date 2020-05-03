@@ -4,14 +4,12 @@ class Util {
 	
 	constructor(){
 		this.studentList = [];
-		this.selected = '0';
 	}
 	
 	studentSelected(){
 		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + 
 		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " +
 		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
-		this.selected = $('input[name="student"]:checked').val();
 	}
 	
 	insertButtonPressed(){
@@ -27,11 +25,11 @@ class Util {
 
 	updateButtonPressed(){
 	
-		document.getElementById('fname').value = this.studentList[selected].name;
-		document.getElementById('cnp').value = this.studentList[selected].cnp;
-		document.getElementById('regno').value = this.studentList[selected].registrationNo;
-		document.getElementById('year').value = this.studentList[selected].year;
-		document.getElementById('facultySelect').value = this.studentList[selected].faculty.name;
+		document.getElementById('fname').value = this.studentList[$('input[name="student"]:checked').val()].name;
+		document.getElementById('cnp').value = this.studentList[$('input[name="student"]:checked').val()].cnp;
+		document.getElementById('regno').value = this.studentList[$('input[name="student"]:checked').val()].registrationNo;
+		document.getElementById('year').value = this.studentList[$('input[name="student"]:checked').val()].year;
+		document.getElementById('facultySelect').value = this.studentList[$('input[name="student"]:checked').val()].faculty.name;
 		document.getElementById('updateDeleteForm').style.visibility = "visible";
 	}
 
