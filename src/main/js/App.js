@@ -9,7 +9,7 @@ class Student extends React.Component{
 	render() {
 		return (
 			<tr class="row">
-				<td><input type="radio" name="student" onClick={App.studentSelected} value={this.props.student.id} /></td>
+				<td><input type="radio" name="student" onClick={Util.functions.studentSelected} value={this.props.student.id} /></td>
 				<td>{this.props.student.cnp}</td>
 				<td>{this.props.student.name}</td>
 				<td>{this.props.student.registrationNo}</td>
@@ -44,7 +44,20 @@ class StudentList extends React.Component{
 	}
 }
 
+class Util{
+	studentSelected(){
+		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + 
+		" <br /> <input type='button' id='update' class='ok' value='Update student information' /> " +
+		" <br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
+		selected = $('input[name=student]:checked').val();
+	}
+	
+	
+}
 
+module.exports = {
+		  functions: Util
+};
 
 class App extends React.Component {
 
@@ -66,12 +79,6 @@ class App extends React.Component {
 		
 	}
 	
-	studentSelected(){
-		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + 
-		" <br /> <input type='button' id='update' class='ok' value='Update student information' /> " +
-		" <br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
-		selected = $('input[name=student]:checked').val();
-	}
 
 	render() {
 		return (

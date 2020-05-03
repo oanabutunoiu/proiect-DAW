@@ -31168,7 +31168,7 @@ var Student = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
         type: "radio",
         name: "student",
-        onClick: App.studentSelected,
+        onClick: Util.functions.studentSelected,
         value: this.props.student.id
       })), /*#__PURE__*/React.createElement("td", null, this.props.student.cnp), /*#__PURE__*/React.createElement("td", null, this.props.student.name), /*#__PURE__*/React.createElement("td", null, this.props.student.registrationNo), /*#__PURE__*/React.createElement("td", null, this.props.student.faculty.name), /*#__PURE__*/React.createElement("td", null, this.props.student.year));
     }
@@ -31202,6 +31202,26 @@ var StudentList = /*#__PURE__*/function (_React$Component2) {
 
   return StudentList;
 }(React.Component);
+
+var Util = /*#__PURE__*/function () {
+  function Util() {
+    _classCallCheck(this, Util);
+  }
+
+  _createClass(Util, [{
+    key: "studentSelected",
+    value: function studentSelected() {
+      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + " <br /> <input type='button' id='update' class='ok' value='Update student information' /> " + " <br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
+      selected = $('input[name=student]:checked').val();
+    }
+  }]);
+
+  return Util;
+}();
+
+module.exports = {
+  functions: Util
+};
 
 var App = /*#__PURE__*/function (_React$Component3) {
   _inherits(App, _React$Component3);
@@ -31242,12 +31262,6 @@ var App = /*#__PURE__*/function (_React$Component3) {
           students: response.entity
         });
       });
-    }
-  }, {
-    key: "studentSelected",
-    value: function studentSelected() {
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student' />" + " <br /> <input type='button' id='update' class='ok' value='Update student information' /> " + " <br /> <input type='button' id='delete' class='ok' value='Delete student' /> ";
-      selected = $('input[name=student]:checked').val();
     }
   }, {
     key: "render",
