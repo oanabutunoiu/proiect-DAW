@@ -41947,6 +41947,7 @@ var Util = /*#__PURE__*/function () {
     _classCallCheck(this, Util);
 
     this.studentList = [];
+    this.selected = '0';
   }
 
   _createClass(Util, [{
@@ -41986,7 +41987,7 @@ var Util = /*#__PURE__*/function () {
       }
 
       $('input[name="student"]').prop('checked', false);
-      delete this.selected;
+      this.selected = '0';
     }
   }]);
 
