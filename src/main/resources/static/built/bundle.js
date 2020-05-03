@@ -41944,8 +41944,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
-
 var Util = /*#__PURE__*/function () {
   function Util() {
     _classCallCheck(this, Util);
@@ -42032,10 +42030,9 @@ var Util = /*#__PURE__*/function () {
           return element.id == $('#facultySelect').val();
         })
       };
-      client({
+      fetch('/students', {
         method: _typeof(myItem.id) !== undefined ? 'PUT' : 'POST',
         body: JSON.stringify(myItem),
-        path: '/students',
         withCredentials: true
       }).then(function (response) {//window.util.studentList.push(myItem);
       });

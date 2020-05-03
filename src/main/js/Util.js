@@ -1,5 +1,4 @@
 const $ = require('jquery');
-const client = require('./client');
 
 class Util {
 	
@@ -83,9 +82,8 @@ class Util {
 				    faculty: window.util.facultyList.find(element => element.id == $('#facultySelect').val())
 				  };
 	    
-	    client({method: (typeof myItem.id !== undefined) ? 'PUT' : 'POST',
+	    fetch('/students', {method: (typeof myItem.id !== undefined) ? 'PUT' : 'POST',
 	  	      body: JSON.stringify(myItem),
-	  	      path: '/students',
 	  	      withCredentials: true
 	  	    }).then(response => {
 			//window.util.studentList.push(myItem);
