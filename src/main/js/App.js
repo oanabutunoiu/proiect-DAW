@@ -91,7 +91,10 @@ class App extends React.Component {
 	
 
 	render() {
-		global.studentList = this.state.students;
+		
+		util.studentList = this.state.students;
+		global.util = util;
+		
 		return (
 			<div>
 				<StudentList students={this.state.students} />

@@ -42289,7 +42289,8 @@ var App = /*#__PURE__*/function (_React$Component5) {
   }, {
     key: "render",
     value: function render() {
-      global.studentList = this.state.students;
+      util.studentList = this.state.students;
+      global.util = util;
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
       }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
