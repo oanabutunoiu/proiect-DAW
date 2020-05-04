@@ -80,6 +80,14 @@ class Util {
 				    year: document.getElementById('year').value,
 				    faculty: window.util.facultyList.find(element => element.id == $('#facultySelect').val())
 				  };
+	    else
+	    	{
+	    		myItem.name = document.getElementById('fname').value;
+	    		myItem.cnp = document.getElementById('cnp').value;
+	    		myItem.registrationNo = document.getElementById('regno').value;
+	    		myItem.year = document.getElementById('year').value;
+	    		myItem.faculty = window.util.facultyList.find(element => element.id == $('#facultySelect').val());
+	    	}
 	    
 	    fetch((myItem.id === undefined) ? '/students' : '/students/' + myItem.id, {method: (myItem.id !== undefined) ? 'PATCH' : 'POST',
 	  	      body: JSON.stringify(myItem),
