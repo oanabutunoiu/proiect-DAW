@@ -42328,11 +42328,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         id: "updateDeleteForm",
         method: "get",
         onSubmit: window.util.handleSubmit
-      }, /*#__PURE__*/React.createElement("input", {
-        type: "hidden",
-        name: "${_csrf.parameterName}",
-        value: "${_csrf.token}"
-      }), /*#__PURE__*/React.createElement("label", {
+      }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
       }, "Full name:  "), /*#__PURE__*/React.createElement("input", {
         type: "text",
