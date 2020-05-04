@@ -53,7 +53,7 @@ class Util {
 			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
 			window.util.remove(parseInt($('input[name="student"]:checked').val()));
 		}
-		$('input[name="student"]').prop('checked', false);
+		window.location.reload(true);
 		
 	}
 	
@@ -89,7 +89,7 @@ class Util {
 		        'Cache-Control': 'no-cache'
 		      },
 	  	      withCredentials: true
-	  	    }).then();
+	  	    }).then(() => {window.location.reload(true)});
 	    
 	  }
 }

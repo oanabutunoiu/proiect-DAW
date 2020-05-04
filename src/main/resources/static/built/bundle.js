@@ -41996,7 +41996,7 @@ var Util = /*#__PURE__*/function () {
         window.util.remove(parseInt($('input[name="student"]:checked').val()));
       }
 
-      $('input[name="student"]').prop('checked', false);
+      window.location.reload(true);
     }
   }, {
     key: "remove",
@@ -42033,7 +42033,9 @@ var Util = /*#__PURE__*/function () {
           'Cache-Control': 'no-cache'
         },
         withCredentials: true
-      }).then();
+      }).then(function () {
+        window.location.reload(true);
+      });
     }
   }]);
 
@@ -42316,7 +42318,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         onClick: window.util.insertButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm",
-        method: "get",
+        method: "post",
         onSubmit: window.util.handleSubmit
       }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
