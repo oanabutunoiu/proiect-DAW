@@ -42025,7 +42025,7 @@ var Util = /*#__PURE__*/function () {
         })
       };
       fetch(myItem.id === undefined ? '/students' : '/students/' + myItem.id, {
-        method: myItem.id !== undefined ? 'PUT' : 'POST',
+        method: myItem.id !== undefined ? 'PATCH' : 'POST',
         body: JSON.stringify(myItem),
         headers: {
           'Accept': 'application/json',
