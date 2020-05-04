@@ -36,9 +36,8 @@ public class StudentController {
 	
 	@PostMapping(value = "/students", consumes = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String postStudent(@RequestBody Student student) {
-		studentRepository.save(student);
-		return "redirect:/";
+	public Student postStudent(@RequestBody Student student) {
+		return studentRepository.save(student);
 	}
 	
 	@PutMapping("/students/{id}")

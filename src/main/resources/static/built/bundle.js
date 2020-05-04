@@ -42326,7 +42326,7 @@ var App = /*#__PURE__*/function (_React$Component5) {
         onClick: window.util.insertButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteForm",
-        method: "post",
+        method: "get",
         onSubmit: window.util.handleSubmit
       }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
