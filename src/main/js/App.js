@@ -108,6 +108,7 @@ class App extends React.Component {
 				 	<br />
 				</div>
 				<form id = "updateDeleteForm" method ="get" onSubmit = {window.util.handleSubmit}>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<label for="fname">Full name:  </label> 
 					<input type="text" id="fname" name="fname" required /><br />
 					<label for="cnp">CNP:  </label>
