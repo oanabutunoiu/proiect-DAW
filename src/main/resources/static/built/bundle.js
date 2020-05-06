@@ -42069,7 +42069,7 @@ var Util = /*#__PURE__*/function () {
           'Cache-Control': 'no-cache'
         }
       }).then(function () {
-        window.location.reload(true);
+        window.location.reload(false);
       });
     }
   }, {
@@ -42095,7 +42095,7 @@ var Util = /*#__PURE__*/function () {
         window.util.removeFaculty(parseInt($('input[name="faculty"]:checked').val()));
       }
 
-      window.location.reload(true);
+      window.location.reload(false);
     }
   }, {
     key: "removeFaculty",

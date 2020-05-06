@@ -123,7 +123,7 @@ class Util {
 		        'Content-Type': 'application/json',
 		        'Cache-Control': 'no-cache'
 		      }
-	  	    }).then(() => {window.location.reload(true)});
+	  	    }).then(() => {window.location.reload(false)});
 	    
 	  }
 	
@@ -148,7 +148,7 @@ class Util {
 			document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert faculty'  onClick='window.util.insertFacultyButtonPressed()' /> <br /><br />";
 			window.util.removeFaculty(parseInt($('input[name="faculty"]:checked').val()));
 		}
-		window.location.reload(true);
+		window.location.reload(false);
 		
 	}
 	
