@@ -20,6 +20,7 @@ class Util {
 	
 	viewStudents(){
 		document.getElementById('tableStudents').style.display ='initial';
+		document.getElementById('myStudentButtons').style.display = 'initial';
 		document.getElementById('tableFaculties').style.display ='none';
 		document.getElementById('myFacultyButtons').style.display = 'none';
 		document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
@@ -30,6 +31,7 @@ class Util {
 		document.getElementById('myStudentButtons').style.display = 'none';
 		document.getElementById('updateDeleteStudentsForm').style.display = 'none';
 		document.getElementById('tableFaculties').style.display ='initial';
+		document.getElementById('myFacultyButtons').style.display = 'initial';
 	}
 	
 	studentSelected(){

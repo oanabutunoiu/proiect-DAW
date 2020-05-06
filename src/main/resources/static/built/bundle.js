@@ -41964,6 +41964,7 @@ var Util = /*#__PURE__*/function () {
     key: "viewStudents",
     value: function viewStudents() {
       document.getElementById('tableStudents').style.display = 'initial';
+      document.getElementById('myStudentButtons').style.display = 'initial';
       document.getElementById('tableFaculties').style.display = 'none';
       document.getElementById('myFacultyButtons').style.display = 'none';
       document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
@@ -41975,6 +41976,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('myStudentButtons').style.display = 'none';
       document.getElementById('updateDeleteStudentsForm').style.display = 'none';
       document.getElementById('tableFaculties').style.display = 'initial';
+      document.getElementById('myFacultyButtons').style.display = 'initial';
     }
   }, {
     key: "studentSelected",
