@@ -42503,10 +42503,6 @@ var App = /*#__PURE__*/function (_React$Component7) {
         name: "facname",
         required: true
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
-        type: "hidden",
-        name: "${_csrf.parameterName}",
-        value: "${_csrf.token}"
-      }), /*#__PURE__*/React.createElement("input", {
         type: "submit",
         "class": "ok",
         value: "Submit"
@@ -42551,10 +42547,6 @@ var App = /*#__PURE__*/function (_React$Component7) {
       }, "2"), /*#__PURE__*/React.createElement("option", {
         value: "3"
       }, "3")), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
-        type: "hidden",
-        name: "${_csrf.parameterName}",
-        value: "${_csrf.token}"
-      }), /*#__PURE__*/React.createElement("input", {
         type: "submit",
         "class": "ok",
         value: "Submit"

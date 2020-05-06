@@ -155,7 +155,6 @@ class App extends React.Component {
 				<form id = "updateDeleteFacultiesForm" onSubmit = {window.util.handleSubmitFaculty}>
 					<label for="facname">Faculty name:  </label> 
 					<input type="text" id="facname" name="facname" required /><br />
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<input type="submit" class="ok" value="Submit" />
 					<br />
 					<br />
@@ -176,7 +175,6 @@ class App extends React.Component {
 				  <option value="3">3</option>
 				</select> <br />
 				<br />
-				<input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}"/>
 				<input type="submit" class="ok" value="Submit" />
 				<br />
 				<br />
