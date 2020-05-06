@@ -82,7 +82,7 @@ class FacultyList extends React.Component{
 class FacultyTable extends React.Component{
 	render() {
 		const faculties = this.props.faculties.map(faculty =>
-			<FacultyRow key={faculty.id} faculty={faculty} />
+			<Faculty key={faculty.id} faculty={faculty} />
 		);
 		return (
 				<table>
@@ -137,7 +137,7 @@ class App extends React.Component {
 					<br />
 				</div>
 				<div id = "tableFaculties">
-					<FacultyTable students={this.state.students} />
+					<FacultyTable faculties={this.state.faculties} />
 				</div>
 				<div id = "tableStudents">
 					<StudentList students={this.state.students} />

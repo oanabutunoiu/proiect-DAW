@@ -42403,7 +42403,7 @@ var FacultyTable = /*#__PURE__*/function (_React$Component6) {
     key: "render",
     value: function render() {
       var faculties = this.props.faculties.map(function (faculty) {
-        return /*#__PURE__*/React.createElement(FacultyRow, {
+        return /*#__PURE__*/React.createElement(Faculty, {
           key: faculty.id,
           faculty: faculty
         });
@@ -42477,7 +42477,7 @@ var App = /*#__PURE__*/function (_React$Component7) {
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("div", {
         id: "tableFaculties"
       }, /*#__PURE__*/React.createElement(FacultyTable, {
-        students: this.state.students
+        faculties: this.state.faculties
       })), /*#__PURE__*/React.createElement("div", {
         id: "tableStudents"
       }, /*#__PURE__*/React.createElement(StudentList, {
