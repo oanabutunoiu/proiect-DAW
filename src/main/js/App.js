@@ -152,7 +152,7 @@ class App extends React.Component {
 			 		<br />
 			 		<br />
 			 	</div>
-				<form id = "updateDeleteFacultiesForm" method ="get" onSubmit = {window.util.handleSubmitFaculty}>
+				<form id = "updateDeleteFacultiesForm" onSubmit = {window.util.handleSubmitFaculty}>
 					<label for="facname">Faculty name:  </label> 
 					<input type="text" id="facname" name="facname" required /><br />
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -160,7 +160,7 @@ class App extends React.Component {
 					<br />
 					<br />
 				</form>
-				<form id = "updateDeleteStudentsForm" method ="get" onSubmit = {window.util.handleSubmit}>
+				<form id = "updateDeleteStudentsForm" onSubmit = {window.util.handleSubmit}>
 				<label for="fname">Full name:  </label> 
 				<input type="text" id="fname" name="fname" required /><br />
 				<label for="cnp">CNP:  </label>

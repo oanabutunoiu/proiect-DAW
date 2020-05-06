@@ -42494,7 +42494,6 @@ var App = /*#__PURE__*/function (_React$Component7) {
         onClick: window.util.insertFacultyButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteFacultiesForm",
-        method: "get",
         onSubmit: window.util.handleSubmitFaculty
       }, /*#__PURE__*/React.createElement("label", {
         "for": "facname"
@@ -42513,7 +42512,6 @@ var App = /*#__PURE__*/function (_React$Component7) {
         value: "Submit"
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
         id: "updateDeleteStudentsForm",
-        method: "get",
         onSubmit: window.util.handleSubmit
       }, /*#__PURE__*/React.createElement("label", {
         "for": "fname"
