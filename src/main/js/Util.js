@@ -1,5 +1,5 @@
 const $ = require('jquery');
-
+var token = $("meta[name='_csrf']").attr("content");
 class Util {
 	
 	
@@ -91,7 +91,8 @@ class Util {
 	      headers: {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json',
-	        'Cache-Control': 'no-cache'
+	        'Cache-Control': 'no-cache',
+	        'X-CSRF-TOKEN': token
 	      }
 	    }).then();
 	  }
@@ -121,7 +122,8 @@ class Util {
 	  	      headers: {
 		        'Accept': 'application/json',
 		        'Content-Type': 'application/json',
-		        'Cache-Control': 'no-cache'
+		        'Cache-Control': 'no-cache',
+		        'X-CSRF-TOKEN': token
 		      }
 	  	    }).then(() => {window.location.reload(false)});
 	    
@@ -158,7 +160,8 @@ class Util {
 	      headers: {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json',
-	        'Cache-Control': 'no-cache'
+	        'Cache-Control': 'no-cache',
+	        'X-CSRF-TOKEN': token
 	      }
 
 	    }).then();
@@ -181,7 +184,8 @@ class Util {
 	  	      headers: {
 		        'Accept': 'application/json',
 		        'Content-Type': 'application/json',
-		        'Cache-Control': 'no-cache'
+		        'Cache-Control': 'no-cache',
+		        'X-CSRF-TOKEN': token
 		      }
 	  	    }).then(() => {window.location.reload(true)});
 	    

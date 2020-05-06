@@ -41942,6 +41942,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
+var token = $("meta[name='_csrf']").attr("content");
+
 var Util = /*#__PURE__*/function () {
   function Util() {
     _classCallCheck(this, Util);
@@ -42035,7 +42037,8 @@ var Util = /*#__PURE__*/function () {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache'
+          'Cache-Control': 'no-cache',
+          'X-CSRF-TOKEN': token
         }
       }).then();
     }
@@ -42066,7 +42069,8 @@ var Util = /*#__PURE__*/function () {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache'
+          'Cache-Control': 'no-cache',
+          'X-CSRF-TOKEN': token
         }
       }).then(function () {
         window.location.reload(false);
@@ -42105,7 +42109,8 @@ var Util = /*#__PURE__*/function () {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache'
+          'Cache-Control': 'no-cache',
+          'X-CSRF-TOKEN': token
         }
       }).then();
     }
@@ -42124,7 +42129,8 @@ var Util = /*#__PURE__*/function () {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache'
+          'Cache-Control': 'no-cache',
+          'X-CSRF-TOKEN': token
         }
       }).then(function () {
         window.location.reload(true);
