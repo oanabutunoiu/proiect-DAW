@@ -124,7 +124,7 @@ class Util {
 		        'Accept': 'application/json',
 		        'Content-Type': 'application/json',
 		        'Cache-Control': 'no-cache',
-		        'X-CSRF-TOKEN': token
+		        header : token
 		      }
 	  	    }).then(() => {window.location.reload(false)});
 	    
@@ -162,7 +162,7 @@ class Util {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json',
 	        'Cache-Control': 'no-cache',
-	        'X-CSRF-TOKEN': token
+	        header : token
 	      }
 
 	    }).then();
@@ -186,7 +186,7 @@ class Util {
 		        'Accept': 'application/json',
 		        'Content-Type': 'application/json',
 		        'Cache-Control': 'no-cache',
-		        'X-CSRF-TOKEN': token
+		        header : token
 		      }
 	  	    }).then(() => {window.location.reload(true)});
 	    

@@ -42071,7 +42071,7 @@ var Util = /*#__PURE__*/function () {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Cache-Control': 'no-cache',
-          'X-CSRF-TOKEN': token
+          header: token
         }
       }).then(function () {
         window.location.reload(false);
@@ -42111,7 +42111,7 @@ var Util = /*#__PURE__*/function () {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Cache-Control': 'no-cache',
-          'X-CSRF-TOKEN': token
+          header: token
         }
       }).then();
     }
@@ -42131,7 +42131,7 @@ var Util = /*#__PURE__*/function () {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Cache-Control': 'no-cache',
-          'X-CSRF-TOKEN': token
+          header: token
         }
       }).then(function () {
         window.location.reload(true);
