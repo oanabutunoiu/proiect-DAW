@@ -41948,22 +41948,53 @@ var Util = /*#__PURE__*/function () {
 
     this.studentList = [];
     this.facultyList = [];
-    this.item = {
+    this.itemStudent = {
       name: '',
       cnp: '',
       registrationNo: '',
       year: 0,
       faculty: undefined
     };
+    this.itemFaculty = {
+      name: ''
+    };
   }
 
   _createClass(Util, [{
+    key: "viewStudents",
+    value: function viewStudents() {
+      document.getElementById('tableStudents').style.display = 'initial';
+      document.getElementById('myStudentButtons').style.display = 'initial';
+      document.getElementById('updateDeleteStudentsForm').style.display = 'initial';
+      document.getElementById('tableFaculties').style.display = 'none';
+      document.getElementById('myFacultyButtons').style.display = 'none';
+      document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
+    }
+  }, {
+    key: "viewFaculties",
+    value: function viewFaculties() {
+      document.getElementById('tableStudents').style.display = 'none';
+      document.getElementById('myStudentButtons').style.display = 'none';
+      document.getElementById('updateDeleteStudentsForm').style.display = 'none';
+      document.getElementById('tableFaculties').style.display = 'initial';
+      document.getElementById('myFacultyButtons').style.display = 'initial';
+      document.getElementById('updateDeleteFacultiesForm').style.display = 'initial';
+    }
+  }, {
     key: "studentSelected",
     value: function studentSelected() {
       window.util.item = window.util.studentList.find(function (element) {
         return element.id == $('input[name="student"]:checked').val();
       });
-      document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
+      document.getElementById('myStudentButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
+    }
+  }, {
+    key: "facultySelected",
+    value: function facultySelected() {
+      window.util.item = window.util.studentList.find(function (element) {
+        return element.id == $('input[name="faculty"]:checked').val();
+      });
+      document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertFacultyButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateFacultyButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteFacultyButtonPressed()' /> <br /><br />";
     }
   }, {
     key: "insertButtonPressed",
@@ -41973,7 +42004,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('regno').value = '';
       document.getElementById('year').value = '';
       document.getElementById('facultySelect').value = '';
-      document.getElementById('updateDeleteForm').style.visibility = "visible";
+      document.getElementById('updateDeleteStudentsForm').style.display = "initial";
     }
   }, {
     key: "updateButtonPressed",
@@ -41983,7 +42014,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('regno').value = window.util.item.registrationNo;
       document.getElementById('year').value = window.util.item.year;
       document.getElementById('facultySelect').value = window.util.item.faculty.id;
-      document.getElementById('updateDeleteForm').style.visibility = "visible";
+      document.getElementById('updateDeleteStudentsForm').style.display = "initial";
     }
   }, {
     key: "deleteButtonPressed",
@@ -41991,8 +42022,8 @@ var Util = /*#__PURE__*/function () {
       var c = confirm('Delete selected student?');
 
       if (c == true) {
-        document.getElementById('updateDeleteForm').style.visibility = "hidden";
-        document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
+        document.getElementById('updateDeleteStudentsForm').style.display = "none";
+        document.getElementById('myStudentButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
         window.util.remove(parseInt($('input[name="student"]:checked').val()));
       }
 
@@ -42033,6 +42064,66 @@ var Util = /*#__PURE__*/function () {
         });
       }
       fetch(myItem.id === undefined ? '/students' : '/students/' + myItem.id, {
+        method: myItem.id !== undefined ? 'PATCH' : 'POST',
+        body: JSON.stringify(myItem),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache'
+        },
+        withCredentials: true
+      }).then(function () {
+        window.location.reload(true);
+      });
+    }
+  }, {
+    key: "insertFacultyButtonPressed",
+    value: function insertFacultyButtonPressed() {
+      document.getElementById('facname').value = '';
+      document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
+    }
+  }, {
+    key: "updateFacultyButtonPressed",
+    value: function updateFacultyButtonPressed() {
+      document.getElementById('facname').value = window.util.item.name;
+      document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
+    }
+  }, {
+    key: "deleteFacultyButtonPressed",
+    value: function deleteFacultyButtonPressed() {
+      var c = confirm('Delete selected student?');
+
+      if (c == true) {
+        document.getElementById('updateDeleteFacultiesForm').style.display = "none";
+        document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert faculty'  onClick='window.util.insertFacultyButtonPressed()' /> <br /><br />";
+        window.util.removeFaculty(parseInt($('input[name="faculty"]:checked').val()));
+      }
+
+      window.location.reload(true);
+    }
+  }, {
+    key: "removeFaculty",
+    value: function removeFaculty(id) {
+      fetch('/faculties/' + id, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache'
+        },
+        withCredentials: true
+      }).then();
+    }
+  }, {
+    key: "handleSubmitFaculty",
+    value: function handleSubmitFaculty() {
+      var myItem = window.util.item;
+      if (myItem.id === undefined) myItem = {
+        name: document.getElementById('facname').value
+      };else {
+        myItem.name = document.getElementById('facname').value;
+      }
+      fetch(myItem.id === undefined ? '/faculties' : '/faculties/' + myItem.id, {
         method: myItem.id !== undefined ? 'PATCH' : 'POST',
         body: JSON.stringify(myItem),
         headers: {
@@ -42238,15 +42329,43 @@ var Faculty = /*#__PURE__*/function (_React$Component3) {
   return Faculty;
 }(React.Component);
 
-var FacultyList = /*#__PURE__*/function (_React$Component4) {
-  _inherits(FacultyList, _React$Component4);
+var FacultyRow = /*#__PURE__*/function (_React$Component4) {
+  _inherits(FacultyRow, _React$Component4);
 
-  var _super4 = _createSuper(FacultyList);
+  var _super4 = _createSuper(FacultyRow);
+
+  function FacultyRow() {
+    _classCallCheck(this, FacultyRow);
+
+    return _super4.apply(this, arguments);
+  }
+
+  _createClass(FacultyRow, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("tr", {
+        "class": "row"
+      }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("input", {
+        type: "radio",
+        name: "faculty",
+        onClick: window.util.facultySelected,
+        value: this.props.faculty.id
+      })), /*#__PURE__*/React.createElement("td", null, this.props.faculty.name));
+    }
+  }]);
+
+  return FacultyRow;
+}(React.Component);
+
+var FacultyList = /*#__PURE__*/function (_React$Component5) {
+  _inherits(FacultyList, _React$Component5);
+
+  var _super5 = _createSuper(FacultyList);
 
   function FacultyList() {
     _classCallCheck(this, FacultyList);
 
-    return _super4.apply(this, arguments);
+    return _super5.apply(this, arguments);
   }
 
   _createClass(FacultyList, [{
@@ -42269,17 +42388,44 @@ var FacultyList = /*#__PURE__*/function (_React$Component4) {
   return FacultyList;
 }(React.Component);
 
-var App = /*#__PURE__*/function (_React$Component5) {
-  _inherits(App, _React$Component5);
+var FacultyTable = /*#__PURE__*/function (_React$Component6) {
+  _inherits(FacultyTable, _React$Component6);
 
-  var _super5 = _createSuper(App);
+  var _super6 = _createSuper(FacultyTable);
+
+  function FacultyTable() {
+    _classCallCheck(this, FacultyTable);
+
+    return _super6.apply(this, arguments);
+  }
+
+  _createClass(FacultyTable, [{
+    key: "render",
+    value: function render() {
+      var faculties = this.props.faculties.map(function (faculty) {
+        return /*#__PURE__*/React.createElement(FacultyRow, {
+          key: faculty.id,
+          faculty: faculty
+        });
+      });
+      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null), /*#__PURE__*/React.createElement("th", null, "Faculty Name")), faculties));
+    }
+  }]);
+
+  return FacultyTable;
+}(React.Component);
+
+var App = /*#__PURE__*/function (_React$Component7) {
+  _inherits(App, _React$Component7);
+
+  var _super7 = _createSuper(App);
 
   function App(props) {
     var _this;
 
     _classCallCheck(this, App);
 
-    _this = _super5.call(this, props);
+    _this = _super7.call(this, props);
     _this.state = {
       students: [],
       faculties: []
@@ -42314,18 +42460,61 @@ var App = /*#__PURE__*/function (_React$Component5) {
     value: function render() {
       window.util.studentList = this.state.students;
       window.util.facultyList = this.state.faculties;
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(StudentList, {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+        id: "viewButtons"
+      }, /*#__PURE__*/React.createElement("input", {
+        type: "button",
+        id: "viewStudents",
+        "class": "ok",
+        value: "View students",
+        onClick: window.util.viewStudents
+      }), /*#__PURE__*/React.createElement("input", {
+        type: "button",
+        id: "viewFaculties",
+        "class": "ok",
+        value: "View faculties",
+        onClick: window.util.viewFaculties
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("div", {
+        id: "tableFaculties"
+      }, /*#__PURE__*/React.createElement(FacultyTable, {
         students: this.state.students
-      }), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
-        id: "myButtons"
+      })), /*#__PURE__*/React.createElement("div", {
+        id: "tableStudents"
+      }, /*#__PURE__*/React.createElement(StudentList, {
+        students: this.state.students
+      })), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
+        id: "myStudentButtons"
       }, /*#__PURE__*/React.createElement("input", {
         type: "button",
         id: "insert",
         "class": "ok",
         value: "Insert student",
         onClick: window.util.insertButtonPressed
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("div", {
+        id: "myFacultyButtons"
+      }, /*#__PURE__*/React.createElement("input", {
+        type: "button",
+        id: "insert",
+        "class": "ok",
+        value: "Insert faculty",
+        onClick: window.util.insertFacultyButtonPressed
       }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
-        id: "updateDeleteForm",
+        id: "updateDeleteFacultiesForm",
+        method: "get",
+        onSubmit: window.util.handleSubmitFaculty
+      }, /*#__PURE__*/React.createElement("label", {
+        "for": "facname"
+      }, "Faculty name:  "), /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        id: "facname",
+        name: "facname",
+        required: true
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+        type: "submit",
+        "class": "ok",
+        value: "Submit"
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("form", {
+        id: "updateDeleteStudentsForm",
         method: "get",
         onSubmit: window.util.handleSubmit
       }, /*#__PURE__*/React.createElement("label", {

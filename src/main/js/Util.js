@@ -6,21 +6,51 @@ class Util {
 	constructor(){
 		this.studentList = [];
 		this.facultyList = [];
-		this.item = {
+		this.itemStudent = {
 			    name: '',
 			    cnp: '',
 			    registrationNo: '',
 			    year: 0,
 			    faculty: undefined
 			  };
+		this.itemFaculty = {
+			name: ''	
+		};
+	}
+	
+	viewStudents(){
+		document.getElementById('tableStudents').style.display ='initial';
+		document.getElementById('myStudentButtons').style.display = 'initial';
+		document.getElementById('updateDeleteStudentsForm').style.display = 'initial';
+		document.getElementById('tableFaculties').style.display ='none';
+		document.getElementById('myFacultyButtons').style.display = 'none';
+		document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
+	}
+	
+	viewFaculties(){
+		document.getElementById('tableStudents').style.display ='none';
+		document.getElementById('myStudentButtons').style.display = 'none';
+		document.getElementById('updateDeleteStudentsForm').style.display = 'none';
+		document.getElementById('tableFaculties').style.display ='initial';
+		document.getElementById('myFacultyButtons').style.display = 'initial';
+		document.getElementById('updateDeleteFacultiesForm').style.display = 'initial';
 	}
 	
 	studentSelected(){
 		
 		window.util.item = window.util.studentList.find(element => element.id == $('input[name="student"]:checked').val());
-		document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + 
+		document.getElementById('myStudentButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + 
 		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " +
 		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
+		
+	}
+	
+	facultySelected(){
+		
+		window.util.item = window.util.studentList.find(element => element.id == $('input[name="faculty"]:checked').val());
+		document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertFacultyButtonPressed()' />" + 
+		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateFacultyButtonPressed()' /> " +
+		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteFacultyButtonPressed()' /> <br /><br />";
 		
 	}
 	
@@ -31,7 +61,7 @@ class Util {
 		document.getElementById('regno').value = '';
 		document.getElementById('year').value = '';
 		document.getElementById('facultySelect').value = '';
-		document.getElementById('updateDeleteForm').style.visibility = "visible";
+		document.getElementById('updateDeleteStudentsForm').style.display = "initial";
 	}
 
 
@@ -42,15 +72,15 @@ class Util {
 		document.getElementById('regno').value = window.util.item.registrationNo;
 		document.getElementById('year').value = window.util.item.year;
 		document.getElementById('facultySelect').value = window.util.item.faculty.id;
-		document.getElementById('updateDeleteForm').style.visibility = "visible";
+		document.getElementById('updateDeleteStudentsForm').style.display = "initial";
 	}
 
 	deleteButtonPressed(){
 		var c = confirm('Delete selected student?');
 		if (c == true)	{
 		
-			document.getElementById('updateDeleteForm').style.visibility = "hidden";
-			document.getElementById('myButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
+			document.getElementById('updateDeleteStudentsForm').style.display = "none";
+			document.getElementById('myStudentButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
 			window.util.remove(parseInt($('input[name="student"]:checked').val()));
 		}
 		window.location.reload(true);
@@ -90,6 +120,67 @@ class Util {
 	    	}
 	    
 	    fetch((myItem.id === undefined) ? '/students' : '/students/' + myItem.id, {method: (myItem.id !== undefined) ? 'PATCH' : 'POST',
+	  	      body: JSON.stringify(myItem),
+	  	      headers: {
+		        'Accept': 'application/json',
+		        'Content-Type': 'application/json',
+		        'Cache-Control': 'no-cache'
+		      },
+	  	      withCredentials: true
+	  	    }).then(() => {window.location.reload(true)});
+	    
+	  }
+	
+	insertFacultyButtonPressed(){
+		
+		document.getElementById('facname').value = '';
+		document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
+	}
+
+
+	updateFacultyButtonPressed(){
+	
+		document.getElementById('facname').value = window.util.item.name;
+		document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
+	}
+
+	deleteFacultyButtonPressed(){
+		var c = confirm('Delete selected student?');
+		if (c == true)	{
+		
+			document.getElementById('updateDeleteFacultiesForm').style.display = "none";
+			document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert faculty'  onClick='window.util.insertFacultyButtonPressed()' /> <br /><br />";
+			window.util.removeFaculty(parseInt($('input[name="faculty"]:checked').val()));
+		}
+		window.location.reload(true);
+		
+	}
+	
+	removeFaculty(id) {
+	    fetch('/faculties/' + id, {
+	      method: 'DELETE',
+	      headers: {
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json',
+	        'Cache-Control': 'no-cache'
+	      },
+	      withCredentials: true
+	    }).then();
+	  }
+	
+	
+	handleSubmitFaculty() {
+	    var myItem = window.util.item;
+	    if (myItem.id === undefined)
+	    	myItem = {
+				    name: document.getElementById('facname').value,
+				  };
+	    else
+	    	{
+	    		myItem.name = document.getElementById('facname').value;
+	    	}
+	    
+	    fetch((myItem.id === undefined) ? '/faculties' : '/faculties/' + myItem.id, {method: (myItem.id !== undefined) ? 'PATCH' : 'POST',
 	  	      body: JSON.stringify(myItem),
 	  	      headers: {
 		        'Accept': 'application/json',

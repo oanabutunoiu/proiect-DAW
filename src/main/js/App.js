@@ -54,6 +54,17 @@ class Faculty extends React.Component{
 	}
 }
 
+class FacultyRow extends React.Component{
+	render() {
+		return (
+				<tr class="row">
+					<td><input type="radio" name="faculty" onClick={window.util.facultySelected} value={this.props.faculty.id} /></td>
+					<td>{this.props.faculty.name}</td>
+				</tr>
+		)
+	}
+}
+
 
 class FacultyList extends React.Component{
 	render() {
@@ -64,6 +75,25 @@ class FacultyList extends React.Component{
 			<select id = "facultySelect" name = "facultySelect" required>
 					{faculties}
 			</select>
+		)
+	}
+}
+
+class FacultyTable extends React.Component{
+	render() {
+		const faculties = this.props.faculties.map(faculty =>
+			<FacultyRow key={faculty.id} faculty={faculty} />
+		);
+		return (
+				<table>
+				<tbody>
+					<tr>
+						<th></th>
+						<th>Faculty Name</th>
+					</tr>
+					{faculties}
+				</tbody>
+			</table>
 		)
 	}
 }
@@ -100,33 +130,57 @@ class App extends React.Component {
 		
 		return (
 			<div>
-				<StudentList students={this.state.students} />
+				<div id = "viewButtons">
+					<input type="button" id="viewStudents" class="ok" value="View students"  onClick={window.util.viewStudents} />     
+					<input type="button" id="viewFaculties" class="ok" value="View faculties"  onClick={window.util.viewFaculties} />
+					<br />
+					<br />
+				</div>
+				<div id = "tableFaculties">
+					<FacultyTable students={this.state.students} />
+				</div>
+				<div id = "tableStudents">
+					<StudentList students={this.state.students} />
+				</div>
 				<br /> <br />
-				<div id = "myButtons">
+				<div id = "myStudentButtons">
 				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick={window.util.insertButtonPressed} />
 				 	<br />
 				 	<br />
 				</div>
-				<form id = "updateDeleteForm" method ="get" onSubmit = {window.util.handleSubmit}>
-					<label for="fname">Full name:  </label> 
-					<input type="text" id="fname" name="fname" required /><br />
-					<label for="cnp">CNP:  </label>
-					<input type="text" id="cnp" name="cnp" required /><br />
-					<label for="regno">Registration Number:  </label>
-					<input type="text" id="regno" name="regno" required /><br />
-					<label for="facultySelect">Faculty:  </label>
-					<FacultyList faculties ={this.state.faculties} /> <br />
-					<label for="year">Year: </label>
-					<select id="year" name = "year" required>
-					  <option value="1">1</option>
-					  <option value="2">2</option>
-					  <option value="3">3</option>
-					</select> <br />
-					<br />
+				<div id = "myFacultyButtons">
+			 		<input type="button" id="insert" class="ok" value="Insert faculty"  onClick={window.util.insertFacultyButtonPressed} />
+			 		<br />
+			 		<br />
+			 	</div>
+				<form id = "updateDeleteFacultiesForm" method ="get" onSubmit = {window.util.handleSubmitFaculty}>
+					<label for="facname">Faculty name:  </label> 
+					<input type="text" id="facname" name="facname" required /><br />
+					
 					<input type="submit" class="ok" value="Submit" />
 					<br />
 					<br />
 				</form>
+				<form id = "updateDeleteStudentsForm" method ="get" onSubmit = {window.util.handleSubmit}>
+				<label for="fname">Full name:  </label> 
+				<input type="text" id="fname" name="fname" required /><br />
+				<label for="cnp">CNP:  </label>
+				<input type="text" id="cnp" name="cnp" required /><br />
+				<label for="regno">Registration Number:  </label>
+				<input type="text" id="regno" name="regno" required /><br />
+				<label for="facultySelect">Faculty:  </label>
+				<FacultyList faculties ={this.state.faculties} /> <br />
+				<label for="year">Year: </label>
+				<select id="year" name = "year" required>
+				  <option value="1">1</option>
+				  <option value="2">2</option>
+				  <option value="3">3</option>
+				</select> <br />
+				<br />
+				<input type="submit" class="ok" value="Submit" />
+				<br />
+				<br />
+			</form>
 			</div>
 		)
 	}
