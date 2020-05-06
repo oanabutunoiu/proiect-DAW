@@ -41943,6 +41943,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
 
 var Util = /*#__PURE__*/function () {
   function Util() {
@@ -42038,7 +42039,7 @@ var Util = /*#__PURE__*/function () {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Cache-Control': 'no-cache',
-          'X-CSRF-TOKEN': token
+          header: token
         }
       }).then();
     }

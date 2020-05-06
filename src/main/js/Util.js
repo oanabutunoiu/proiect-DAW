@@ -1,5 +1,6 @@
 const $ = require('jquery');
 var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
 class Util {
 	
 	
@@ -92,7 +93,7 @@ class Util {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json',
 	        'Cache-Control': 'no-cache',
-	        'X-CSRF-TOKEN': token
+	        header : token
 	      }
 	    }).then();
 	  }
