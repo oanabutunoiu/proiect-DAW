@@ -92,8 +92,7 @@ class Util {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json',
 	        'Cache-Control': 'no-cache'
-	      },
-	      withCredentials: true
+	      }
 	    }).then();
 	  }
 	
@@ -123,8 +122,7 @@ class Util {
 		        'Accept': 'application/json',
 		        'Content-Type': 'application/json',
 		        'Cache-Control': 'no-cache'
-		      },
-	  	      withCredentials: true
+		      }
 	  	    }).then(() => {window.location.reload(true)});
 	    
 	  }
@@ -161,8 +159,8 @@ class Util {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json',
 	        'Cache-Control': 'no-cache'
-	      },
-	      withCredentials: true
+	      }
+
 	    }).then();
 	  }
 	
@@ -184,8 +182,7 @@ class Util {
 		        'Accept': 'application/json',
 		        'Content-Type': 'application/json',
 		        'Cache-Control': 'no-cache'
-		      },
-	  	      withCredentials: true
+		      }
 	  	    }).then(() => {window.location.reload(true)});
 	    
 	  }
