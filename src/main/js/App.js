@@ -82,7 +82,7 @@ class FacultyList extends React.Component{
 class FacultyTable extends React.Component{
 	render() {
 		const faculties = this.props.faculties.map(faculty =>
-			<Faculty key={faculty.id} faculty={faculty} />
+			<FacultyRow key={faculty.id} faculty={faculty} />
 		);
 		return (
 				<table>
@@ -131,8 +131,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<div id = "viewButtons">
-					<input type="button" id="viewStudents" class="ok" value="View students"  onClick={window.util.viewStudents} />     
-					<input type="button" id="viewFaculties" class="ok" value="View faculties"  onClick={window.util.viewFaculties} />
+					<input type="button" id="viewStudents" class="ok" value="View students"  onClick={window.util.viewStudents} />       <input type="button" id="viewFaculties" class="ok" value="View faculties"  onClick={window.util.viewFaculties} />
 					<br />
 					<br />
 				</div>

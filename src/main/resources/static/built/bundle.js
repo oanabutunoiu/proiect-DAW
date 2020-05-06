@@ -41964,8 +41964,6 @@ var Util = /*#__PURE__*/function () {
     key: "viewStudents",
     value: function viewStudents() {
       document.getElementById('tableStudents').style.display = 'initial';
-      document.getElementById('myStudentButtons').style.display = 'initial';
-      document.getElementById('updateDeleteStudentsForm').style.display = 'initial';
       document.getElementById('tableFaculties').style.display = 'none';
       document.getElementById('myFacultyButtons').style.display = 'none';
       document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
@@ -41977,8 +41975,6 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('myStudentButtons').style.display = 'none';
       document.getElementById('updateDeleteStudentsForm').style.display = 'none';
       document.getElementById('tableFaculties').style.display = 'initial';
-      document.getElementById('myFacultyButtons').style.display = 'initial';
-      document.getElementById('updateDeleteFacultiesForm').style.display = 'initial';
     }
   }, {
     key: "studentSelected",
@@ -42403,7 +42399,7 @@ var FacultyTable = /*#__PURE__*/function (_React$Component6) {
     key: "render",
     value: function render() {
       var faculties = this.props.faculties.map(function (faculty) {
-        return /*#__PURE__*/React.createElement(Faculty, {
+        return /*#__PURE__*/React.createElement(FacultyRow, {
           key: faculty.id,
           faculty: faculty
         });
@@ -42468,7 +42464,7 @@ var App = /*#__PURE__*/function (_React$Component7) {
         "class": "ok",
         value: "View students",
         onClick: window.util.viewStudents
-      }), /*#__PURE__*/React.createElement("input", {
+      }), "       ", /*#__PURE__*/React.createElement("input", {
         type: "button",
         id: "viewFaculties",
         "class": "ok",
