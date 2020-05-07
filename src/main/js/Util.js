@@ -108,17 +108,22 @@ class Util {
 	}
 	
 	remove(id) {
+		
+		var xhttp = new XMLHttpRequest();
+		
+		xhttp.open('DELETE', '/students/' + id, false);
 		xhttp.setRequestHeader('Accept', 'application/json');
 	    xhttp.setRequestHeader('Content-Type', 'application/json');
 	    xhttp.setRequestHeader('Cache-Control', 'no-cache');
 	    xhttp.setRequestHeader('X-XSRF-TOKEN', token);
 	    
-	    xhttp.open('DELETE', '/students/' + id, false);
+	    
 	    xhttp.send();
 	  }
 	
 	
 	handleSubmit() {
+		var xhttp = new XMLHttpRequest();
 	    var myItem = window.util.itemStudent;
 	    var xhttp = new XMLHttpRequest();
 	    if (myItem.id === undefined)
@@ -138,12 +143,14 @@ class Util {
 	    		myItem.faculty = window.util.facultyList.find(element => element.id == $('#facultySelect').val());
 	    	}
 	    
+	    xhttp.open((myItem.id !== undefined) ? 'PATCH' : 'POST', (myItem.id === undefined) ? '/students' : '/students/' + myItem.id, false);
+	    
 	    xhttp.setRequestHeader('Accept', 'application/json');
 	    xhttp.setRequestHeader('Content-Type', 'application/json');
 	    xhttp.setRequestHeader('Cache-Control', 'no-cache');
 	    xhttp.setRequestHeader('X-XSRF-TOKEN', token);
 	    
-	    xhttp.open((myItem.id !== undefined) ? 'PATCH' : 'POST', (myItem.id === undefined) ? '/students' : '/students/' + myItem.id, false);
+	   
 	    xhttp.send(JSON.stringify(myItem));
 	    window.location.reload(true);
 	    
@@ -179,17 +186,20 @@ class Util {
 	}
 	
 	removeFaculty(id) {
-		xhttp.setRequestHeader('Accept', 'application/json');
+		var xhttp = new XMLHttpRequest();
+		
+	    
+	    xhttp.open('DELETE', '/faculties/' + id, false);
+	    xhttp.setRequestHeader('Accept', 'application/json');
 	    xhttp.setRequestHeader('Content-Type', 'application/json');
 	    xhttp.setRequestHeader('Cache-Control', 'no-cache');
 	    xhttp.setRequestHeader('X-XSRF-TOKEN', token);
-	    
-	    xhttp.open('DELETE', '/faculties/' + id, false);
 	    xhttp.send();
 	  }
 	
 	
 	handleSubmitFaculty() {
+		var xhttp = new XMLHttpRequest();
 	    var myItem = window.util.itemFaculty;
 	    if (myItem.id === undefined)
 	    	myItem = {
@@ -200,12 +210,13 @@ class Util {
 	    		myItem.name = document.getElementById('facname').value;
 	    	}
 	    
+	   
+	    
+	    xhttp.open((myItem.id !== undefined) ? 'PATCH' : 'POST', (myItem.id === undefined) ? '/faculties' : '/faculties/' + myItem.id, false);
 	    xhttp.setRequestHeader('Accept', 'application/json');
 	    xhttp.setRequestHeader('Content-Type', 'application/json');
 	    xhttp.setRequestHeader('Cache-Control', 'no-cache');
 	    xhttp.setRequestHeader('X-XSRF-TOKEN', token);
-	    
-	    xhttp.open((myItem.id !== undefined) ? 'PATCH' : 'POST', (myItem.id === undefined) ? '/faculties' : '/faculties/' + myItem.id, false);
 	    xhttp.send(JSON.stringify(myItem));
 	    window.location.reload(true);
 

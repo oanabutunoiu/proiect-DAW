@@ -42056,16 +42056,18 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "remove",
     value: function remove(id) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open('DELETE', '/students/' + id, false);
       xhttp.setRequestHeader('Accept', 'application/json');
       xhttp.setRequestHeader('Content-Type', 'application/json');
       xhttp.setRequestHeader('Cache-Control', 'no-cache');
       xhttp.setRequestHeader('X-XSRF-TOKEN', token);
-      xhttp.open('DELETE', '/students/' + id, false);
       xhttp.send();
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit() {
+      var xhttp = new XMLHttpRequest();
       var myItem = window.util.itemStudent;
       var xhttp = new XMLHttpRequest();
       if (myItem.id === undefined) myItem = {
@@ -42085,11 +42087,11 @@ var Util = /*#__PURE__*/function () {
           return element.id == $('#facultySelect').val();
         });
       }
+      xhttp.open(myItem.id !== undefined ? 'PATCH' : 'POST', myItem.id === undefined ? '/students' : '/students/' + myItem.id, false);
       xhttp.setRequestHeader('Accept', 'application/json');
       xhttp.setRequestHeader('Content-Type', 'application/json');
       xhttp.setRequestHeader('Cache-Control', 'no-cache');
       xhttp.setRequestHeader('X-XSRF-TOKEN', token);
-      xhttp.open(myItem.id !== undefined ? 'PATCH' : 'POST', myItem.id === undefined ? '/students' : '/students/' + myItem.id, false);
       xhttp.send(JSON.stringify(myItem));
       window.location.reload(true);
     }
@@ -42123,27 +42125,29 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "removeFaculty",
     value: function removeFaculty(id) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open('DELETE', '/faculties/' + id, false);
       xhttp.setRequestHeader('Accept', 'application/json');
       xhttp.setRequestHeader('Content-Type', 'application/json');
       xhttp.setRequestHeader('Cache-Control', 'no-cache');
       xhttp.setRequestHeader('X-XSRF-TOKEN', token);
-      xhttp.open('DELETE', '/faculties/' + id, false);
       xhttp.send();
     }
   }, {
     key: "handleSubmitFaculty",
     value: function handleSubmitFaculty() {
+      var xhttp = new XMLHttpRequest();
       var myItem = window.util.itemFaculty;
       if (myItem.id === undefined) myItem = {
         name: document.getElementById('facname').value
       };else {
         myItem.name = document.getElementById('facname').value;
       }
+      xhttp.open(myItem.id !== undefined ? 'PATCH' : 'POST', myItem.id === undefined ? '/faculties' : '/faculties/' + myItem.id, false);
       xhttp.setRequestHeader('Accept', 'application/json');
       xhttp.setRequestHeader('Content-Type', 'application/json');
       xhttp.setRequestHeader('Cache-Control', 'no-cache');
       xhttp.setRequestHeader('X-XSRF-TOKEN', token);
-      xhttp.open(myItem.id !== undefined ? 'PATCH' : 'POST', myItem.id === undefined ? '/faculties' : '/faculties/' + myItem.id, false);
       xhttp.send(JSON.stringify(myItem));
       window.location.reload(true);
     }
