@@ -42056,21 +42056,18 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "remove",
     value: function remove(id) {
-      fetch('/students/' + id, {
-        method: 'DELETE',
-        async: false,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache',
-          'X-XSRF-TOKEN': token
-        }
-      });
+      xhttp.setRequestHeader('Accept', 'application/json');
+      xhttp.setRequestHeader('Content-Type', 'application/json');
+      xhttp.setRequestHeader('Cache-Control', 'no-cache');
+      xhttp.setRequestHeader('X-XSRF-TOKEN', token);
+      xhttp.open('DELETE', '/students/' + id, false);
+      xhttp.send();
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit() {
       var myItem = window.util.itemStudent;
+      var xhttp = new XMLHttpRequest();
       if (myItem.id === undefined) myItem = {
         name: document.getElementById('fname').value,
         cnp: document.getElementById('cnp').value,
@@ -42088,17 +42085,12 @@ var Util = /*#__PURE__*/function () {
           return element.id == $('#facultySelect').val();
         });
       }
-      fetch(myItem.id === undefined ? '/students' : '/students/' + myItem.id, {
-        method: myItem.id !== undefined ? 'PATCH' : 'POST',
-        body: JSON.stringify(myItem),
-        async: false,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache',
-          'X-XSRF-TOKEN': token
-        }
-      });
+      xhttp.setRequestHeader('Accept', 'application/json');
+      xhttp.setRequestHeader('Content-Type', 'application/json');
+      xhttp.setRequestHeader('Cache-Control', 'no-cache');
+      xhttp.setRequestHeader('X-XSRF-TOKEN', token);
+      xhttp.open(myItem.id !== undefined ? 'PATCH' : 'POST', myItem.id === undefined ? '/students' : '/students/' + myItem.id, false);
+      xhttp.send(JSON.stringify(myItem));
       window.location.reload(true);
     }
   }, {
@@ -42131,16 +42123,12 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "removeFaculty",
     value: function removeFaculty(id) {
-      fetch('/faculties/' + id, {
-        method: 'DELETE',
-        async: false,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache',
-          'X-XSRF-TOKEN': token
-        }
-      });
+      xhttp.setRequestHeader('Accept', 'application/json');
+      xhttp.setRequestHeader('Content-Type', 'application/json');
+      xhttp.setRequestHeader('Cache-Control', 'no-cache');
+      xhttp.setRequestHeader('X-XSRF-TOKEN', token);
+      xhttp.open('DELETE', '/faculties/' + id, false);
+      xhttp.send();
     }
   }, {
     key: "handleSubmitFaculty",
@@ -42151,17 +42139,12 @@ var Util = /*#__PURE__*/function () {
       };else {
         myItem.name = document.getElementById('facname').value;
       }
-      fetch(myItem.id === undefined ? '/faculties' : '/faculties/' + myItem.id, {
-        method: myItem.id !== undefined ? 'PATCH' : 'POST',
-        body: JSON.stringify(myItem),
-        async: false,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache',
-          'X-XSRF-TOKEN': token
-        }
-      });
+      xhttp.setRequestHeader('Accept', 'application/json');
+      xhttp.setRequestHeader('Content-Type', 'application/json');
+      xhttp.setRequestHeader('Cache-Control', 'no-cache');
+      xhttp.setRequestHeader('X-XSRF-TOKEN', token);
+      xhttp.open(myItem.id !== undefined ? 'PATCH' : 'POST', myItem.id === undefined ? '/faculties' : '/faculties/' + myItem.id, false);
+      xhttp.send(JSON.stringify(myItem));
       window.location.reload(true);
     }
   }]);
