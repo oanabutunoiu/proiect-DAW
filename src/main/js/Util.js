@@ -50,7 +50,7 @@ class Util {
 	
 	studentSelected(){
 		
-		window.util.item = window.util.studentList.find(element => element.id == $('input[name="student"]:checked').val());
+		window.util.itemStudent = window.util.studentList.find(element => element.id == $('input[name="student"]:checked').val());
 		document.getElementById('myStudentButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + 
 		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " +
 		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
@@ -59,10 +59,10 @@ class Util {
 	
 	facultySelected(){
 		
-		window.util.item = window.util.studentList.find(element => element.id == $('input[name="faculty"]:checked').val());
+		window.util.itemFaculty = window.util.facultyList.find(element => element.id == $('input[name="faculty"]:checked').val());
 		document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertFacultyButtonPressed()' />" + 
-		"       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateFacultyButtonPressed()' /> " +
-		"       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteFacultyButtonPressed()' /> <br /><br />";
+		"       <input type='button' id='update' class='ok' value='Update faculty information'  onClick='window.util.updateFacultyButtonPressed()' /> " +
+		"       <input type='button' id='delete' class='ok' value='Delete faculty' onClick='window.util.deleteFacultyButtonPressed()' /> <br /><br />";
 		
 	}
 	
@@ -157,7 +157,7 @@ class Util {
 	}
 
 	deleteFacultyButtonPressed(){
-		var c = confirm('Delete selected student?');
+		var c = confirm('Delete selected faculty?');
 		if (c == true)	{
 		
 			document.getElementById('updateDeleteFacultiesForm').style.display = "none";

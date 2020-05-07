@@ -42001,7 +42001,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "studentSelected",
     value: function studentSelected() {
-      window.util.item = window.util.studentList.find(function (element) {
+      window.util.itemStudent = window.util.studentList.find(function (element) {
         return element.id == $('input[name="student"]:checked').val();
       });
       document.getElementById('myStudentButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteButtonPressed()' /> <br /><br />";
@@ -42009,10 +42009,10 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "facultySelected",
     value: function facultySelected() {
-      window.util.item = window.util.studentList.find(function (element) {
+      window.util.itemFaculty = window.util.facultyList.find(function (element) {
         return element.id == $('input[name="faculty"]:checked').val();
       });
-      document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertFacultyButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update student information'  onClick='window.util.updateFacultyButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete student' onClick='window.util.deleteFacultyButtonPressed()' /> <br /><br />";
+      document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertFacultyButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update faculty information'  onClick='window.util.updateFacultyButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete faculty' onClick='window.util.deleteFacultyButtonPressed()' /> <br /><br />";
     }
   }, {
     key: "insertButtonPressed",
@@ -42109,7 +42109,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "deleteFacultyButtonPressed",
     value: function deleteFacultyButtonPressed() {
-      var c = confirm('Delete selected student?');
+      var c = confirm('Delete selected faculty?');
 
       if (c == true) {
         document.getElementById('updateDeleteFacultiesForm').style.display = "none";
