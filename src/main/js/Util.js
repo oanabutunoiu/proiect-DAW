@@ -101,8 +101,9 @@ class Util {
 			document.getElementById('updateDeleteStudentsForm').style.display = "none";
 			document.getElementById('myStudentButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
 			window.util.remove(parseInt($('input[name="student"]:checked').val()));
+			window.location.reload(true);
 		}
-		window.location.reload(true);
+		
 		
 	}
 	
@@ -177,8 +178,9 @@ class Util {
 			document.getElementById('updateDeleteFacultiesForm').style.display = "none";
 			document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert faculty'  onClick='window.util.insertFacultyButtonPressed()' /> <br /><br />";
 			window.util.removeFaculty(parseInt($('input[name="faculty"]:checked').val()));
+			window.location.reload(true);
 		}
-		window.location.reload(true);
+		
 		
 	}
 	
@@ -193,7 +195,7 @@ class Util {
 	        'X-XSRF-TOKEN' : token
 	      }
 
-	    }).then();
+	    });
 	  }
 	
 	
