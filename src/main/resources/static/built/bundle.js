@@ -42027,11 +42027,11 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "updateButtonPressed",
     value: function updateButtonPressed() {
-      document.getElementById('fname').value = window.util.item.name;
-      document.getElementById('cnp').value = window.util.item.cnp;
-      document.getElementById('regno').value = window.util.item.registrationNo;
-      document.getElementById('year').value = window.util.item.year;
-      document.getElementById('facultySelect').value = window.util.item.faculty.id;
+      document.getElementById('fname').value = window.util.itemStudent.name;
+      document.getElementById('cnp').value = window.util.itemStudent.cnp;
+      document.getElementById('regno').value = window.util.itemStudent.registrationNo;
+      document.getElementById('year').value = window.util.itemStudent.year;
+      document.getElementById('facultySelect').value = window.util.itemStudent.faculty.id;
       document.getElementById('updateDeleteStudentsForm').style.display = "initial";
     }
   }, {
@@ -42103,7 +42103,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "updateFacultyButtonPressed",
     value: function updateFacultyButtonPressed() {
-      document.getElementById('facname').value = window.util.item.name;
+      document.getElementById('facname').value = window.util.itemFaculty.name;
       document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
     }
   }, {
