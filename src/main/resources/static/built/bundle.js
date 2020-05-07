@@ -41989,8 +41989,18 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('myFacultyButtons').style.display = 'none';
       document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
       document.getElementById('createorupdate').innerHTML = '';
-      document.getElementByName('faculty').checked = false;
-      document.getElementByName('faculty').checked = false;
+      var x = document.getElementsByName('student');
+      var i;
+
+      for (i = 0; i < x.length; i++) {
+        x[i].checked = false;
+      }
+
+      x = document.getElementsByName('faculty');
+
+      for (i = 0; i < x.length; i++) {
+        x[i].checked = false;
+      }
     }
   }, {
     key: "viewFaculties",
@@ -42001,8 +42011,18 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('tableFaculties').style.display = 'initial';
       document.getElementById('myFacultyButtons').style.display = 'initial';
       document.getElementById('createorupdate').innerHTML = '';
-      document.getElementByName('faculty').checked = false;
-      document.getElementByName('student').checked = false;
+      var x = document.getElementsByName('student');
+      var i;
+
+      for (i = 0; i < x.length; i++) {
+        x[i].checked = false;
+      }
+
+      x = document.getElementsByName('faculty');
+
+      for (i = 0; i < x.length; i++) {
+        x[i].checked = false;
+      }
     }
   }, {
     key: "studentSelected",
@@ -42023,7 +42043,13 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "insertButtonPressed",
     value: function insertButtonPressed() {
-      document.getElementByName('student').checked = false;
+      var x = document.getElementsByName('student');
+      var i;
+
+      for (i = 0; i < x.length; i++) {
+        x[i].checked = false;
+      }
+
       this.itemStudent = {
         name: '',
         cnp: '',
@@ -42107,7 +42133,13 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "insertFacultyButtonPressed",
     value: function insertFacultyButtonPressed() {
-      document.getElementByName('faculty').checked = false;
+      var x = document.getElementsByName('faculty');
+      var i;
+
+      for (i = 0; i < x.length; i++) {
+        x[i].checked = false;
+      }
+
       this.itemFaculty = {
         name: ''
       };
