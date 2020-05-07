@@ -42052,6 +42052,7 @@ var Util = /*#__PURE__*/function () {
     value: function remove(id) {
       fetch('/students/' + id, {
         method: 'DELETE',
+        async: false,
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -42084,6 +42085,7 @@ var Util = /*#__PURE__*/function () {
       fetch(myItem.id === undefined ? '/students' : '/students/' + myItem.id, {
         method: myItem.id !== undefined ? 'PATCH' : 'POST',
         body: JSON.stringify(myItem),
+        async: false,
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -42124,6 +42126,7 @@ var Util = /*#__PURE__*/function () {
     value: function removeFaculty(id) {
       fetch('/faculties/' + id, {
         method: 'DELETE',
+        async: false,
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -42144,6 +42147,7 @@ var Util = /*#__PURE__*/function () {
       fetch(myItem.id === undefined ? '/faculties' : '/faculties/' + myItem.id, {
         method: myItem.id !== undefined ? 'PATCH' : 'POST',
         body: JSON.stringify(myItem),
+        async: false,
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',

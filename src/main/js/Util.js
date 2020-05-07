@@ -102,6 +102,7 @@ class Util {
 	remove(id) {
 	    fetch('/students/' + id, {
 	      method: 'DELETE',
+	      async: false,
 	      headers: {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json',
@@ -133,6 +134,7 @@ class Util {
 	    
 	    fetch((myItem.id === undefined) ? '/students' : '/students/' + myItem.id, {method: (myItem.id !== undefined) ? 'PATCH' : 'POST',
 	  	      body: JSON.stringify(myItem),
+	  	      async: false,
 	  	      headers: {
 		        'Accept': 'application/json',
 		        'Content-Type': 'application/json',
@@ -171,6 +173,7 @@ class Util {
 	removeFaculty(id) {
 	    fetch('/faculties/' + id, {
 	      method: 'DELETE',
+	      async: false,
 	      headers: {
 	        'Accept': 'application/json',
 	        'Content-Type': 'application/json',
@@ -195,6 +198,7 @@ class Util {
 	    
 	    fetch((myItem.id === undefined) ? '/faculties' : '/faculties/' + myItem.id, {method: (myItem.id !== undefined) ? 'PATCH' : 'POST',
 	  	      body: JSON.stringify(myItem),
+	  	      async: false,
 	  	      headers: {
 		        'Accept': 'application/json',
 		        'Content-Type': 'application/json',
