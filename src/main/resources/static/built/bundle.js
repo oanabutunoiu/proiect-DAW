@@ -41942,8 +41942,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-var token = $("meta[name='_csrf']").attr("content");
-var header = $("meta[name='_csrf_header']").attr("content");
+var token = cookies.get('XSRF-TOKEN');
 
 var Util = /*#__PURE__*/function () {
   function Util() {
