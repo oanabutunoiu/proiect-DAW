@@ -42063,7 +42063,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "handleSubmit",
     value: function handleSubmit() {
-      var myItem = window.util.item;
+      var myItem = window.util.itemStudent;
       if (myItem.id === undefined) myItem = {
         name: document.getElementById('fname').value,
         cnp: document.getElementById('cnp').value,
@@ -42135,7 +42135,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "handleSubmitFaculty",
     value: function handleSubmitFaculty() {
-      var myItem = window.util.item;
+      var myItem = window.util.itemFaculty;
       if (myItem.id === undefined) myItem = {
         name: document.getElementById('facname').value
       };else {
@@ -42526,7 +42526,7 @@ var App = /*#__PURE__*/function (_React$Component7) {
         id: "facname",
         name: "facname",
         required: true
-      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
+      }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
         type: "submit",
         "class": "ok",
         value: "Submit"

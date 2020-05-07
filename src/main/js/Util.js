@@ -113,7 +113,7 @@ class Util {
 	
 	
 	handleSubmit() {
-	    var myItem = window.util.item;
+	    var myItem = window.util.itemStudent;
 	    if (myItem.id === undefined)
 	    	myItem = {
 				    name: document.getElementById('fname').value,
@@ -183,7 +183,7 @@ class Util {
 	
 	
 	handleSubmitFaculty() {
-	    var myItem = window.util.item;
+	    var myItem = window.util.itemFaculty;
 	    if (myItem.id === undefined)
 	    	myItem = {
 				    name: document.getElementById('facname').value,

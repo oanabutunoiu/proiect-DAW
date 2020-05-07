@@ -154,7 +154,7 @@ class App extends React.Component {
 			 	</div>
 				<form id = "updateDeleteFacultiesForm" onSubmit = {window.util.handleSubmitFaculty}>
 					<label for="facname">Faculty name:  </label> 
-					<input type="text" id="facname" name="facname" required /><br />
+					<input type="text" id="facname" name="facname" required /><br /><br />
 					<input type="submit" class="ok" value="Submit" />
 					<br />
 					<br />
