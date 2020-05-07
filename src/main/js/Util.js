@@ -39,6 +39,8 @@ class Util {
 		document.getElementById('myFacultyButtons').style.display = 'none';
 		document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
 		document.getElementById('createorupdate').innerHTML = '';
+		document.getElementByName('faculty').checked = false;
+		document.getElementByName('faculty').checked = false;
 	}
 	
 	viewFaculties(){
@@ -48,6 +50,8 @@ class Util {
 		document.getElementById('tableFaculties').style.display ='initial';
 		document.getElementById('myFacultyButtons').style.display = 'initial';
 		document.getElementById('createorupdate').innerHTML = '';
+		document.getElementByName('faculty').checked = false;
+		document.getElementByName('student').checked = false;
 	}
 	
 	studentSelected(){
@@ -70,7 +74,7 @@ class Util {
 	
 	insertButtonPressed(){
 		
-		document.getElementById('student').checked = false;
+		document.getElementByName('student').checked = false;
 		this.itemStudent  = {
 			    name: '',
 			    cnp: '',
@@ -163,7 +167,7 @@ class Util {
 	
 	insertFacultyButtonPressed(){
 		
-		document.getElementById('faculty').checked = false;
+		document.getElementByName('faculty').checked = false;
 		this.itemFaculty  = {
 			    name: ''
 			  };
