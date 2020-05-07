@@ -64,6 +64,9 @@ public class StudentController {
 		if (patch.getYear() != 0) {
 			student.setYear(patch.getYear());
 		}
+		if (patch.getFaculty() != null) {
+			student.setFaculty(patch.getFaculty());
+		}
 		return studentRepository.save(student);
 	}
 
