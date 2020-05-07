@@ -42091,7 +42091,7 @@ var Util = /*#__PURE__*/function () {
           'X-XSRF-TOKEN': token
         }
       }).then(function () {
-        window.location.reload(false);
+        window.location.reload(true);
       });
     }
   }, {
@@ -42117,7 +42117,7 @@ var Util = /*#__PURE__*/function () {
         window.util.removeFaculty(parseInt($('input[name="faculty"]:checked').val()));
       }
 
-      window.location.reload(false);
+      window.location.reload(true);
     }
   }, {
     key: "removeFaculty",

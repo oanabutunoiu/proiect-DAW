@@ -139,7 +139,7 @@ class Util {
 		        'Cache-Control': 'no-cache',
 		        'X-XSRF-TOKEN' : token
 		      }
-	  	    }).then(() => {window.location.reload(false)});
+	  	    }).then(() => {window.location.reload(true)});
 	    
 	  }
 	
@@ -164,7 +164,7 @@ class Util {
 			document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert faculty'  onClick='window.util.insertFacultyButtonPressed()' /> <br /><br />";
 			window.util.removeFaculty(parseInt($('input[name="faculty"]:checked').val()));
 		}
-		window.location.reload(false);
+		window.location.reload(true);
 		
 	}
 	
