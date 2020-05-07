@@ -1,5 +1,5 @@
 const $ = require('jquery');
-var token = cookies.get('XSRF-TOKEN');
+var token = document.cookie.get('XSRF-TOKEN');
 class Util {
 	
 	
