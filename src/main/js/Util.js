@@ -110,6 +110,7 @@ class Util {
 			    year: 0,
 			    faculty: undefined
 			  }; 
+		document.getElementById('myStudentButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertButtonPressed()' /> <br /><br />";
 		document.getElementById('fname').value = '';
 		document.getElementById('cnp').value = '';
 		document.getElementById('regno').value = '';
@@ -205,9 +206,11 @@ class Util {
 		this.itemFaculty  = {
 			    name: ''
 			  };
+		document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert faculty'  onClick='window.util.insertFacultyButtonPressed()' /> <br /><br />";
 		document.getElementById('facname').value = '';
 		document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
 		document.getElementById('createorupdate').innerHTML = 'Inserting a new faculty...';
+		
 	}
 
 
