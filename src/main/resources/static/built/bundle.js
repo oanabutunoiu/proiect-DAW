@@ -42019,6 +42019,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "insertButtonPressed",
     value: function insertButtonPressed() {
+      document.getElementById('student').checked = false;
       this.itemStudent = {
         name: '',
         cnp: '',
@@ -42102,6 +42103,7 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "insertFacultyButtonPressed",
     value: function insertFacultyButtonPressed() {
+      document.getElementById('faculty').checked = false;
       this.itemFaculty = {
         name: ''
       };

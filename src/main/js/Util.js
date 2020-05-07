@@ -70,6 +70,7 @@ class Util {
 	
 	insertButtonPressed(){
 		
+		document.getElementById('student').checked = false;
 		this.itemStudent  = {
 			    name: '',
 			    cnp: '',
@@ -162,6 +163,7 @@ class Util {
 	
 	insertFacultyButtonPressed(){
 		
+		document.getElementById('faculty').checked = false;
 		this.itemFaculty  = {
 			    name: ''
 			  };
