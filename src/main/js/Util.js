@@ -116,7 +116,7 @@ class Util {
 	        'Cache-Control': 'no-cache',
 	        'X-XSRF-TOKEN' : token
 	      }
-	    }).then();
+	    });
 	  }
 	
 	
@@ -148,7 +148,9 @@ class Util {
 		        'Cache-Control': 'no-cache',
 		        'X-XSRF-TOKEN' : token
 		      }
-	  	    }).then(() => {window.location.reload(true)});
+	  	    });
+	    
+	    window.location.reload(true);
 	    
 	  }
 	
@@ -215,7 +217,9 @@ class Util {
 		        'Cache-Control': 'no-cache',
 		        'X-XSRF-TOKEN' : token
 		      }
-	  	    }).then(() => {window.location.reload(true)});
+	  	    });
+	    
+	    window.location.reload(true);
 	    
 	  }
 }

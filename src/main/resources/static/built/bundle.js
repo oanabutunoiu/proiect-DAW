@@ -42066,7 +42066,7 @@ var Util = /*#__PURE__*/function () {
           'Cache-Control': 'no-cache',
           'X-XSRF-TOKEN': token
         }
-      }).then();
+      });
     }
   }, {
     key: "handleSubmit",
@@ -42099,9 +42099,8 @@ var Util = /*#__PURE__*/function () {
           'Cache-Control': 'no-cache',
           'X-XSRF-TOKEN': token
         }
-      }).then(function () {
-        window.location.reload(true);
       });
+      window.location.reload(true);
     }
   }, {
     key: "insertFacultyButtonPressed",
@@ -42164,9 +42163,8 @@ var Util = /*#__PURE__*/function () {
           'Cache-Control': 'no-cache',
           'X-XSRF-TOKEN': token
         }
-      }).then(function () {
-        window.location.reload(true);
       });
+      window.location.reload(true);
     }
   }]);
 
