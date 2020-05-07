@@ -68,6 +68,13 @@ class Util {
 	
 	insertButtonPressed(){
 		
+		this.itemStudent  = {
+			    name: '',
+			    cnp: '',
+			    registrationNo: '',
+			    year: 0,
+			    faculty: undefined
+			  }; 
 		document.getElementById('fname').value = '';
 		document.getElementById('cnp').value = '';
 		document.getElementById('regno').value = '';
@@ -147,6 +154,9 @@ class Util {
 	
 	insertFacultyButtonPressed(){
 		
+		this.itemFaculty  = {
+			    name: ''
+			  };
 		document.getElementById('facname').value = '';
 		document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
 	}

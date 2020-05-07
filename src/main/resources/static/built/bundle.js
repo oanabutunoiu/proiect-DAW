@@ -42017,6 +42017,13 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "insertButtonPressed",
     value: function insertButtonPressed() {
+      this.itemStudent = {
+        name: '',
+        cnp: '',
+        registrationNo: '',
+        year: 0,
+        faculty: undefined
+      };
       document.getElementById('fname').value = '';
       document.getElementById('cnp').value = '';
       document.getElementById('regno').value = '';
@@ -42099,6 +42106,9 @@ var Util = /*#__PURE__*/function () {
   }, {
     key: "insertFacultyButtonPressed",
     value: function insertFacultyButtonPressed() {
+      this.itemFaculty = {
+        name: ''
+      };
       document.getElementById('facname').value = '';
       document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
     }
