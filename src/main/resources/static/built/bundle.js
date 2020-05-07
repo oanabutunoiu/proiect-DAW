@@ -41942,7 +41942,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-var token = document.cookie.get('XSRF-TOKEN');
+function getCookie(name) {
+  if (!document.cookie) {
+    return null;
+  }
+
+  var xsrfCookies = document.cookie.split(';').map(function (c) {
+    return c.trim();
+  }).filter(function (c) {
+    return c.startsWith(name + '=');
+  });
+
+  if (xsrfCookies.length === 0) {
+    return null;
+  }
+
+  return decodeURIComponent(xsrfCookies[0].split('=')[1]);
+}
+
+var token = getCookie('XSRF-TOKEN');
 
 var Util = /*#__PURE__*/function () {
   function Util() {
