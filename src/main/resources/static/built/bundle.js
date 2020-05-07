@@ -41988,6 +41988,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('tableFaculties').style.display = 'none';
       document.getElementById('myFacultyButtons').style.display = 'none';
       document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
+      document.getElementById('createorupdate').innerHTML = '';
     }
   }, {
     key: "viewFaculties",
@@ -41997,6 +41998,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('updateDeleteStudentsForm').style.display = 'none';
       document.getElementById('tableFaculties').style.display = 'initial';
       document.getElementById('myFacultyButtons').style.display = 'initial';
+      document.getElementById('createorupdate').innerHTML = '';
     }
   }, {
     key: "studentSelected",
@@ -42030,6 +42032,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('year').value = '';
       document.getElementById('facultySelect').value = '';
       document.getElementById('updateDeleteStudentsForm').style.display = "initial";
+      document.getElementById('createorupdate').innerHTML = 'Inserting a new student...';
     }
   }, {
     key: "updateButtonPressed",
@@ -42040,6 +42043,7 @@ var Util = /*#__PURE__*/function () {
       document.getElementById('year').value = window.util.itemStudent.year;
       document.getElementById('facultySelect').value = window.util.itemStudent.faculty.id;
       document.getElementById('updateDeleteStudentsForm').style.display = "initial";
+      document.getElementById('createorupdate').innerHTML = 'Updating selected student...';
     }
   }, {
     key: "deleteButtonPressed",
@@ -42103,12 +42107,14 @@ var Util = /*#__PURE__*/function () {
       };
       document.getElementById('facname').value = '';
       document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
+      document.getElementById('createorupdate').innerHTML = 'Inserting a new faculty...';
     }
   }, {
     key: "updateFacultyButtonPressed",
     value: function updateFacultyButtonPressed() {
       document.getElementById('facname').value = window.util.itemFaculty.name;
       document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
+      document.getElementById('createorupdate').innerHTML = 'Updating selected faculty...';
     }
   }, {
     key: "deleteFacultyButtonPressed",
@@ -42497,7 +42503,9 @@ var App = /*#__PURE__*/function (_React$Component7) {
         id: "tableStudents"
       }, /*#__PURE__*/React.createElement(StudentList, {
         students: this.state.students
-      })), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
+      })), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("p", {
+        id: "createorupdate"
+      }), /*#__PURE__*/React.createElement("div", {
         id: "myStudentButtons"
       }, /*#__PURE__*/React.createElement("input", {
         type: "button",

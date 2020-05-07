@@ -38,6 +38,7 @@ class Util {
 		document.getElementById('tableFaculties').style.display ='none';
 		document.getElementById('myFacultyButtons').style.display = 'none';
 		document.getElementById('updateDeleteFacultiesForm').style.display = 'none';
+		document.getElementById('createorupdate').innerHTML = '';
 	}
 	
 	viewFaculties(){
@@ -46,6 +47,7 @@ class Util {
 		document.getElementById('updateDeleteStudentsForm').style.display = 'none';
 		document.getElementById('tableFaculties').style.display ='initial';
 		document.getElementById('myFacultyButtons').style.display = 'initial';
+		document.getElementById('createorupdate').innerHTML = '';
 	}
 	
 	studentSelected(){
@@ -81,6 +83,7 @@ class Util {
 		document.getElementById('year').value = '';
 		document.getElementById('facultySelect').value = '';
 		document.getElementById('updateDeleteStudentsForm').style.display = "initial";
+		document.getElementById('createorupdate').innerHTML = 'Inserting a new student...';
 	}
 
 
@@ -92,6 +95,7 @@ class Util {
 		document.getElementById('year').value = window.util.itemStudent.year;
 		document.getElementById('facultySelect').value = window.util.itemStudent.faculty.id;
 		document.getElementById('updateDeleteStudentsForm').style.display = "initial";
+		document.getElementById('createorupdate').innerHTML = 'Updating selected student...';
 	}
 
 	deleteButtonPressed(){
@@ -163,6 +167,7 @@ class Util {
 			  };
 		document.getElementById('facname').value = '';
 		document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
+		document.getElementById('createorupdate').innerHTML = 'Inserting a new faculty...';
 	}
 
 
@@ -170,6 +175,7 @@ class Util {
 	
 		document.getElementById('facname').value = window.util.itemFaculty.name;
 		document.getElementById('updateDeleteFacultiesForm').style.display = "initial";
+		document.getElementById('createorupdate').innerHTML = 'Updating selected faculty...';
 	}
 
 	deleteFacultyButtonPressed(){

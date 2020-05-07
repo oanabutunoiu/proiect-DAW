@@ -142,6 +142,7 @@ class App extends React.Component {
 					<StudentList students={this.state.students} />
 				</div>
 				<br /> <br />
+				<p id = "createorupdate"></p>
 				<div id = "myStudentButtons">
 				 	<input type="button" id="insert" class="ok" value="Insert student"  onClick={window.util.insertButtonPressed} />
 				 	<br />
