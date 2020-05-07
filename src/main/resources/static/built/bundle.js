@@ -42038,7 +42038,7 @@ var Util = /*#__PURE__*/function () {
       window.util.itemFaculty = window.util.facultyList.find(function (element) {
         return element.id == $('input[name="faculty"]:checked').val();
       });
-      document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert student'  onClick='window.util.insertFacultyButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update faculty information'  onClick='window.util.updateFacultyButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete faculty' onClick='window.util.deleteFacultyButtonPressed()' /> <br /><br />";
+      document.getElementById('myFacultyButtons').innerHTML = "<input type='button' id='insert' class='ok' value='Insert faculty'  onClick='window.util.insertFacultyButtonPressed()' />" + "       <input type='button' id='update' class='ok' value='Update faculty information'  onClick='window.util.updateFacultyButtonPressed()' /> " + "       <input type='button' id='delete' class='ok' value='Delete faculty' onClick='window.util.deleteFacultyButtonPressed()' /> <br /><br />";
     }
   }, {
     key: "insertButtonPressed",
